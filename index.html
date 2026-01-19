@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#FFFAF1" />
+    <title>Orsayn | L'INFRASTRUCTURE STRATÉGIQUE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fontshare CDN for Boska and General Sans -->
+    <link href="https://api.fontshare.com/v2/css?f[]=boska@200,300,400,500,700,900&f[]=general-sans@200,300,400,500,600,700&display=swap" rel="stylesheet">
+    
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              paper: '#FFFAF1',
+              ink: '#1A1A1A',
+              brass: '#D4B35D',
+            },
+            fontFamily: {
+              serif: ['"Boska"', 'serif'],
+              sans: ['"General Sans"', 'sans-serif'],
+            },
+            spacing: {
+              '128': '32rem',
+            },
+            animation: {
+              "shimmer-slide": "shimmer-slide var(--speed) ease-in-out infinite alternate",
+              "spin-around": "spin-around calc(var(--speed) * 2) infinite linear",
+            },
+            keyframes: {
+              "shimmer-slide": {
+                "to": {
+                  transform: "translate(calc(100cqw - 100%), 0)",
+                },
+              },
+              "spin-around": {
+                "0%": {
+                  transform: "translateZ(0) rotate(0)",
+                },
+                "15%, 35%": {
+                  transform: "translateZ(0) rotate(90deg)",
+                },
+                "65%, 85%": {
+                  transform: "translateZ(0) rotate(270deg)",
+                },
+                "100%": {
+                  transform: "translateZ(0) rotate(360deg)",
+                },
+              },
+            },
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 100px;
+      }
+      
+      body {
+        background-color: #FFFAF1;
+        color: #1A1A1A;
+        font-family: 'General Sans', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        cursor: default;
+      }
+      
+      ::selection {
+        background: #1A1A1A;
+        color: #FFFAF1;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #FFFAF1; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1A1A1A; 
+        border-radius: 0px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #333; 
+      }
+
+      .velours-transition {
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
+        transition-duration: 600ms;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "framer-motion": "https://esm.sh/framer-motion@^12.25.0",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
