@@ -1,3 +1,5 @@
+import React from 'react';
+
 export interface NavItem {
   label: string;
   href: string;
@@ -8,7 +10,7 @@ export interface ServiceProps {
   subtitle: string;
   price: string;
   timeline?: string;
-  description: string;
+  description: string | React.ReactNode;
   features: string[];
   isPrimary?: boolean;
 }

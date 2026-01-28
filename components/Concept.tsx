@@ -3,106 +3,119 @@ import { motion } from 'framer-motion';
 
 const Concept: React.FC = () => {
   return (
-    <section id="esprit" className="py-0 relative bg-paper border-b border-ink/10">
-      <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-24">
+    <section id="esprit" className="py-16 md:py-28 lg:py-32 relative bg-paper overflow-hidden">
+      <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
         
-        {/* 1. HEADER SECTION - Full Width with Borders */}
-        <div className="border-l border-r border-ink/10">
-            <div className="grid grid-cols-1 md:grid-cols-12 border-b border-ink/10">
-                
-                {/* Meta Label Area */}
-                <div className="md:col-span-4 p-8 md:p-12 flex items-start md:items-end border-b md:border-b-0 md:border-r border-ink/10">
-                    <motion.div 
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        className="flex items-center gap-3"
-                    >
-                        <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-ink/50 font-medium">
-                            NOTRE DOCTRINE
-                        </span>
-                    </motion.div>
-                </div>
+        {/* MAIN STRUCTURE: The "Diagnosis Report" Look */}
+        <div className="border-t border-l border-r border-ink/10 bg-paper relative">
+            
+            {/* 1. LABEL ROW - Header of the Report */}
+            <div className="flex items-center justify-between p-6 md:p-8 border-b border-ink/10">
+                <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-ink/40 font-medium flex items-center gap-3">
+                   DIAGNOSTIC
+                </span>
+                <span className="text-[9px] uppercase tracking-[0.2em] text-ink/20 font-mono hidden md:block">
+                   REF: AUDIT 01
+                </span>
+            </div>
 
-                {/* Main Title Area */}
-                <div className="md:col-span-8 p-8 md:p-12 md:pl-24">
-                    <motion.h2 
-                        initial={{ opacity: 0, y: 20 }}
+            {/* 2. THE CONFRONTATION (Split Grid 70/30) */}
+            <div className="grid grid-cols-1 xl:grid-cols-12 min-h-[auto] md:min-h-[500px]">
+                
+                {/* LEFT: THE TITLE (The Symptom) - 7 cols */}
+                <div className="xl:col-span-7 border-b xl:border-b-0 xl:border-r border-ink/10 p-6 md:p-12 lg:p-16 flex flex-col justify-center relative group overflow-hidden py-16 md:py-16">
+                    {/* Background Hover Effect - Subtle noise/grain or slight darken */}
+                    <div className="absolute inset-0 bg-ink/[0.02] scale-y-0 group-hover:scale-y-100 transition-transform duration-1000 origin-bottom ease-[0.22,1,0.36,1]"></div>
+                    
+                    <motion.div 
+                        initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
-                        className="font-serif text-5xl md:text-8xl text-ink leading-[0.9]"
+                        className="relative z-10 text-center xl:text-left"
                     >
-                        L'exigence.
-                    </motion.h2>
+                        <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-ink leading-[0.9] md:leading-[0.85] tracking-tight">
+                            <span className="block xl:-ml-1">Dissonance</span>
+                            {/* Centered on mobile/tablet, Indented on desktop */}
+                            <span className="block italic text-ink/80 mt-2 md:mt-4 xl:ml-24">de prestige.</span>
+                        </h2>
+                    </motion.div>
+                </div>
+
+                {/* RIGHT: THE PAIN (The Analysis) - 5 cols */}
+                <div className="xl:col-span-5 border-b xl:border-b-0 border-ink/10 p-6 md:p-12 lg:p-16 flex flex-col justify-end bg-paper relative text-center md:text-center xl:text-left py-12 md:py-12">
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3, duration: 0.8 }}
+                        className="space-y-6 md:space-y-10"
+                    >
+                        {/* The Pain Paragraphs */}
+                        <div className="font-sans text-base md:text-xl text-ink/70 font-light leading-relaxed">
+                            <p className="mb-4 md:mb-8">
+                                Votre excellence technique est incontestable.
+                            </p>
+                            <p className="mb-4 md:mb-8">
+                                Votre voix digitale, elle, reste silencieuse. Cet écart entre votre réalité et votre empreinte numérique affaiblit la portée de votre nom.
+                            </p>
+                        </div>
+                        
+                        {/* The Conclusion / Promise */}
+                        <div className="pt-2 md:pt-4">
+                            <p className="font-serif text-xl md:text-3xl text-ink leading-tight">
+                                Nous rétablissons <br/> <span className="italic border-b border-ink/20 pb-1">la symétrie.</span>
+                            </p>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
-        </div>
 
-        {/* 2. THE PILLARS - Two Columns Grid */}
-        <div className="border-l border-r border-ink/10">
-            <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* 3. THE CURE (The Pillars) - Interactive Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 border-b border-ink/10">
                 
-                {/* PILLAR 01: DENSITÉ */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="group relative p-8 md:p-12 lg:p-16 border-b lg:border-b-0 lg:border-r border-ink/10 min-h-[400px] md:min-h-[500px] flex flex-col justify-between hover:bg-ink/[0.02] transition-colors duration-500"
-                >
-                    {/* Header */}
-                    <div className="flex justify-between items-start mb-8 md:mb-12">
-                        <h3 className="font-serif text-3xl md:text-5xl text-ink">Densité</h3>
-                        <span className="font-serif text-5xl md:text-8xl text-ink/5 italic opacity-50 group-hover:opacity-100 group-hover:text-brass/20 transition-all duration-700">01</span>
-                    </div>
-
-                    {/* Content - Centered */}
-                    <div className="relative z-10 text-center">
-                        <div className="w-8 md:w-12 h-px bg-ink mb-6 md:mb-8 mx-auto group-hover:w-16 md:group-hover:w-24 group-hover:bg-brass transition-all duration-500"></div>
-                        <div className="text-ink/80 font-light text-base md:text-xl leading-relaxed space-y-2">
-                            <p className="block group-hover:text-ink transition-colors">Nous rejetons le bruit.</p>
-                            <p className="block group-hover:text-ink transition-colors">Chaque mot publié doit peser.</p>
-                            <p className="block text-ink font-medium">Pas de marketing.</p>
-                            <p className="block italic text-ink/60">Du leadership de pensée.</p>
+                {/* Pillar 1: DENSITÉ */}
+                <div className="group relative border-b md:border-b-0 md:border-r border-ink/10 p-6 md:p-12 lg:p-16 transition-colors duration-700 ease-[0.22,1,0.36,1] hover:bg-ink">
+                    <div className="relative z-10 flex flex-col h-full justify-between min-h-[260px] md:min-h-[300px]">
+                        <div className="flex justify-between items-start mb-8 md:mb-12">
+                             <div></div>
+                             <span className="font-serif text-3xl md:text-4xl text-ink/10 group-hover:text-brass/40 transition-colors duration-500">01</span>
+                        </div>
+                        
+                        <div>
+                            <h3 className="font-serif text-2xl md:text-4xl lg:text-5xl mb-4 md:mb-6 text-ink group-hover:text-paper transition-colors duration-500">Densité</h3>
+                            <div className="w-8 h-px bg-ink/20 mb-4 md:mb-6 group-hover:bg-brass transition-colors duration-500"></div>
+                            <p className="text-sm md:text-base font-light text-ink/60 leading-relaxed max-w-sm group-hover:text-paper/80 transition-colors duration-500">
+                                Nous rejetons le bruit.<br/>
+                                Chaque mot publié doit peser.<br/>
+                                Pas de marketing, du leadership de pensée.
+                            </p>
                         </div>
                     </div>
+                </div>
 
-                    {/* Background Interaction */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-ink/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                </motion.div>
-
-
-                {/* PILLAR 02: ÉPURE */}
-                <motion.div 
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    className="group relative p-8 md:p-12 lg:p-16 min-h-[400px] md:min-h-[500px] flex flex-col justify-between hover:bg-ink/[0.02] transition-colors duration-500"
-                >
-                    {/* Header */}
-                    <div className="flex justify-between items-start mb-8 md:mb-12">
-                        <h3 className="font-serif text-3xl md:text-5xl text-ink">Épure</h3>
-                        <span className="font-serif text-5xl md:text-8xl text-ink/5 italic opacity-50 group-hover:opacity-100 group-hover:text-brass/20 transition-all duration-700">02</span>
-                    </div>
-
-                    {/* Content - Centered */}
-                    <div className="relative z-10 text-center">
-                        <div className="w-8 md:w-12 h-px bg-ink mb-6 md:mb-8 mx-auto group-hover:w-16 md:group-hover:w-24 group-hover:bg-brass transition-all duration-500"></div>
-                        <div className="text-ink/80 font-light text-base md:text-xl leading-relaxed space-y-2">
-                            <p className="block group-hover:text-ink transition-colors">Le luxe, c'est le refus.</p>
-                            <p className="block group-hover:text-ink transition-colors">L'espace structure l'autorité.</p>
-                            <p className="block text-ink font-medium">Une fluidité absolue.</p>
-                            <p className="block italic text-ink/60">Digne d'un rang.</p>
+                {/* Pillar 2: ÉPURE */}
+                <div className="group relative p-6 md:p-12 lg:p-16 transition-colors duration-700 ease-[0.22,1,0.36,1] hover:bg-ink">
+                    <div className="relative z-10 flex flex-col h-full justify-between min-h-[260px] md:min-h-[300px]">
+                        <div className="flex justify-between items-start mb-8 md:mb-12">
+                             <div></div>
+                             <span className="font-serif text-3xl md:text-4xl text-ink/10 group-hover:text-brass/40 transition-colors duration-500">02</span>
+                        </div>
+                        
+                        <div>
+                            <h3 className="font-serif text-2xl md:text-4xl lg:text-5xl mb-4 md:mb-6 text-ink group-hover:text-paper transition-colors duration-500">Épure</h3>
+                            <div className="w-8 h-px bg-ink/20 mb-4 md:mb-6 group-hover:bg-brass transition-colors duration-500"></div>
+                            <p className="text-sm md:text-base font-light text-ink/60 leading-relaxed max-w-sm group-hover:text-paper/80 transition-colors duration-500">
+                                Le luxe, c'est le refus.<br/>
+                                L'espace structure l'autorité.<br/>
+                                Une fluidité absolue digne d'un rang.
+                            </p>
                         </div>
                     </div>
-
-                    {/* Background Interaction */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-ink/[0.03] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
-                </motion.div>
+                </div>
 
             </div>
+
         </div>
 
       </div>

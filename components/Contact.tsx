@@ -20,7 +20,7 @@ const InputField = ({ label, number, placeholder, type = "text", isSelect = fals
       {isSelect ? (
         <div className="relative">
              <select 
-                className="w-full bg-transparent font-serif text-xl md:text-2xl text-ink outline-none appearance-none cursor-pointer py-2"
+                className="w-full bg-transparent font-serif text-lg md:text-2xl lg:text-2xl text-ink outline-none appearance-none cursor-pointer py-2"
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setIsFocused(false)}
              >
@@ -30,7 +30,6 @@ const InputField = ({ label, number, placeholder, type = "text", isSelect = fals
                 <option value="resonance">Occuper l'espace (Résonance)</option>
                 <option value="other">Autre demande stratégique</option>
             </select>
-            {/* Custom Arrow */}
             <div className="absolute right-0 top-1/2 -translate-y-1/2 pointer-events-none text-ink opacity-30">
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 4L6 8L10 4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round"/></svg>
             </div>
@@ -38,7 +37,7 @@ const InputField = ({ label, number, placeholder, type = "text", isSelect = fals
       ) : (
         <input 
           type={type} 
-          className="w-full bg-transparent font-serif text-xl md:text-2xl text-ink placeholder:text-ink/10 outline-none py-2"
+          className="w-full bg-transparent font-serif text-lg md:text-2xl lg:text-2xl text-ink placeholder:text-ink/10 outline-none py-2"
           placeholder={placeholder}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
@@ -58,32 +57,28 @@ const InputField = ({ label, number, placeholder, type = "text", isSelect = fals
 
 const Contact: React.FC = () => {
   const [agreementChecked, setAgreementChecked] = useState(false);
-  
-  // Logic for dynamic current year (Année N)
   const currentYear = new Date().getFullYear();
 
   return (
-    <section id="contact" className="py-24 md:py-48 relative overflow-hidden bg-paper">
+    <section id="contact" className="py-20 md:py-32 lg:py-48 relative overflow-hidden bg-paper">
       
-      {/* Background Texture/Grid hint */}
       <div className="absolute inset-0 pointer-events-none">
           <div className="absolute right-0 top-0 w-[500px] h-[500px] bg-ink/[0.01] rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
       </div>
 
-      <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-24 relative z-10">
+      <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-16 xl:px-24 relative z-10">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-12 md:gap-20 lg:gap-24">
           
           {/* LEFT COLUMN: THE MANIFESTO */}
-          <div className="lg:col-span-5 flex flex-col justify-between pl-4 md:pl-8 lg:pl-0 pr-4 md:pr-0">
+          <div className="xl:col-span-5 flex flex-col justify-between items-center xl:items-start text-center xl:text-left pl-0 pr-0">
             <div>
               <motion.div
                  initial={{ opacity: 0 }}
                  whileInView={{ opacity: 1 }}
                  viewport={{ once: true }}
-                 className="flex items-center gap-4 mb-8"
+                 className="flex items-center gap-4 mb-6 md:mb-8 justify-center xl:justify-start"
               >
-                  {/* Decorative line removed here */}
                   <span className="text-[9px] uppercase tracking-[0.3em] text-ink/40">Candidature</span>
               </motion.div>
 
@@ -92,12 +87,12 @@ const Contact: React.FC = () => {
                  whileInView={{ opacity: 1, y: 0 }}
                  viewport={{ once: true }}
                  transition={{ duration: 0.8 }}
-                 className="font-serif text-5xl md:text-7xl lg:text-8xl text-ink leading-[0.9] mb-8 md:mb-12"
+                 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-ink leading-[0.9] mb-8 md:mb-14 lg:mb-16"
               >
                 Admission <br/>sur dossier.
               </motion.h2>
               
-              <div className="space-y-6 md:space-y-8 max-w-md">
+              <div className="space-y-6 md:space-y-8 max-w-md mx-auto xl:mx-0">
                 <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
@@ -119,10 +114,10 @@ const Contact: React.FC = () => {
               </div>
             </div>
             
-            <div className="mt-16 lg:mt-0">
+            <div className="mt-12 xl:mt-0">
                <p className="text-[9px] uppercase tracking-widest text-ink/30 mb-4">Correspondance directe</p>
-               <a href="mailto:contact@orsayn.fr" className="group flex items-center gap-4 text-ink hover:text-brass transition-colors duration-500">
-                  <span className="font-serif text-2xl">contact@orsayn.fr</span>
+               <a href="mailto:contact@orsayn.fr" className="group flex items-center gap-4 text-ink hover:text-brass transition-colors duration-500 justify-center xl:justify-start">
+                  <span className="font-serif text-xl md:text-2xl">contact@orsayn.fr</span>
                   <ArrowRight className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-500" />
                </a>
             </div>
@@ -134,18 +129,18 @@ const Contact: React.FC = () => {
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
              transition={{ duration: 0.8, delay: 0.2 }}
-             className="lg:col-span-7 pl-4 md:pl-0 pr-4 md:pr-12 lg:pr-0"
+             className="xl:col-span-7 pl-0 pr-0 mt-8 xl:mt-0"
           >
-             <form className="space-y-4">
+             <form className="space-y-4 md:space-y-8 lg:space-y-10 xl:space-y-4">
                {/* Header of the Form */}
-               <div className="flex justify-between items-end pb-8 border-b border-ink text-ink">
-                    <span className="text-xs uppercase tracking-[0.2em] font-medium">Formulaire {currentYear}-A</span>
+               <div className="flex justify-between items-end pb-6 md:pb-8 border-b border-ink text-ink">
+                    <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium">Formulaire {currentYear}-A</span>
                     <span className="text-[9px] uppercase tracking-widest text-ink/40">Confidentiel</span>
                </div>
 
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
-                  <InputField label="Identité" number="01" placeholder="Prénom & Nom du décideur" />
-                  <InputField label="Structure" number="02" placeholder="Nom du Cabinet - Société" />
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 md:gap-y-8 lg:gap-y-10 xl:gap-y-4">
+                  <InputField label="Identité" number="01" placeholder="Prénom & Nom" />
+                  <InputField label="Structure" number="02" placeholder="Nom du Cabinet" />
                </div>
 
                <InputField label="Point de Contact" number="03" placeholder="E-mail professionnel" type="email" />
@@ -154,10 +149,9 @@ const Contact: React.FC = () => {
 
                <InputField label="Contexte" number="05" placeholder="Définissez votre objectif prioritaire." />
 
-               {/* Submit Area - Updated to items-center for mobile centering */}
-               <div className="pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+               {/* Submit Area */}
+               <div className="pt-8 md:pt-12 flex flex-col lg:flex-row justify-between items-center gap-8">
                   
-                  {/* Agreement Checkbox */}
                   <div 
                     className="flex items-start gap-4 max-w-xs cursor-pointer group"
                     onClick={() => setAgreementChecked(!agreementChecked)}
@@ -177,15 +171,14 @@ const Contact: React.FC = () => {
                          </AnimatePresence>
                     </div>
                     <p className={`text-[9px] leading-relaxed uppercase tracking-wide transition-colors duration-300 select-none ${agreementChecked ? 'text-ink' : 'text-ink/40 group-hover:text-ink/60'}`}>
-                        En déposant ce dossier, je confirme représenter l'entité citée. Orsayn s'engage à une confidentialité absolue sur les données transmises (Accord NDA implicite).
+                        En déposant ce dossier, je confirme représenter l'entité citée. Accord NDA implicite.
                     </p>
                   </div>
 
-                  <button type="submit" className="group relative overflow-hidden bg-ink text-paper px-10 py-6 min-w-[240px] transition-all duration-500 hover:shadow-2xl hover:shadow-ink/20">
-                      <span className="relative z-10 text-[10px] uppercase tracking-[0.3em] group-hover:text-ink transition-colors duration-500">
+                  <button type="submit" className="group relative overflow-hidden bg-ink text-paper px-8 md:px-10 py-5 md:py-6 min-w-full md:min-w-[240px] transition-all duration-500 hover:shadow-2xl hover:shadow-ink/20">
+                      <span className="relative z-10 text-[9px] md:text-[10px] uppercase tracking-[0.3em] group-hover:text-ink transition-colors duration-500">
                           DÉPOSER LA CANDIDATURE
                       </span>
-                      {/* Button Hover Effect */}
                       <div className="absolute inset-0 bg-brass transform scale-x-0 origin-left group-hover:scale-x-100 transition-transform duration-500 ease-in-out z-0"></div>
                   </button>
                </div>
