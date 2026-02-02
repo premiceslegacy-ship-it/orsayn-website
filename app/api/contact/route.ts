@@ -186,6 +186,16 @@ export async function POST(request: NextRequest) {
         // ===== 2. ENREGISTREMENT NOTION =====
         try {
             console.log('===== DÉBUT NOTION =====');
+            console.log('[DEBUG] NOTION_API_KEY présente:', !!process.env.NOTION_API_KEY);
+            console.log('[DEBUG] NOTION_DATABASE_ID:', process.env.NOTION_DATABASE_ID?.substring(0, 8) + '...');
+            console.log('[DEBUG] cleanData:', JSON.stringify(cleanData, null, 2));
+
+            if (!process.env.NOTION_API_KEY) {
+                throw new Error('NOTION_API_KEY manquante dans les variables d\'environnement');
+            }
+            if (!process.env.NOTION_DATABASE_ID) {
+                throw new Error('NOTION_DATABASE_ID manquante dans les variables d\'environnement');
+            }
 
             const notionPayload = {
                 parent: {
@@ -235,7 +245,13 @@ export async function POST(request: NextRequest) {
             console.log('✅ Notion succès! Page ID:', notionResult.id);
             console.log('===== FIN NOTION =====');
         } catch (notionError: unknown) {
-            console.error('Erreur Notion:', notionError);
+            const err = notionError as { message?: string; code?: string; status?: number; body?: unknown };
+            console.error('[DEBUG] ❌ ERREUR NOTION COMPLÈTE:', {
+                message: err.message,
+                code: err.code,
+                status: err.status,
+                body: JSON.stringify(err.body)
+            });
 
             // Si Notion échoue, on retourne quand même succès (l'email est envoyé)
             return NextResponse.json({
