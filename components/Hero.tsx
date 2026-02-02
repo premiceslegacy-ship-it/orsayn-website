@@ -91,8 +91,11 @@ export default function Hero() {
             </motion.div>
 
             {/* Typography refined for mobile/tablet symmetry */}
+            {/* Typography refined for mobile/tablet symmetry - LCP OPTIMIZED: No start hidden */}
             <motion.h1
               variants={itemVariants}
+              initial="visible"
+              animate="visible"
               className="font-serif font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] md:leading-[1.1] text-ink mb-6 md:mb-10 lg:mb-12 tracking-tight"
             >
               {t('titleLine1')} <br />
