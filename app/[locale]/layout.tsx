@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import NoiseOverlay from '@/components/NoiseOverlay';
 import '../globals.css';
 import { SpeedInsights } from '@vercel/speed-insights/next';
-import { Analytics } from '@vercel/analytics/react';
+import { Analytics } from '@vercel/analytics/next';
 
 const locales = ['fr', 'en'] as const;
 
