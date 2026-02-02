@@ -58,16 +58,7 @@
       "static/chunks/234-de4da8c4aa568aaa.js",
       "static/chunks/app/[locale]/(legal)/confidentialite/page-f3981a47f9572227.js"
     ],
-    "/[locale]/(legal)/plan-du-site/page": [
-      "static/chunks/webpack-03f7c6bc932ce1e3.js",
-      "static/chunks/fd9d1056-6922f449a204c2cc.js",
-      "static/chunks/117-a1cd97d40ffebe9b.js",
-      "static/chunks/main-app-796bd2eeac00b035.js",
-      "static/chunks/234-de4da8c4aa568aaa.js",
-      "static/chunks/972-c6ba9a5476148f18.js",
-      "static/chunks/app/[locale]/(legal)/plan-du-site/page-0ac6297e5cbce862.js"
-    ],
-    "/[locale]/(main)/journal/page": [
+    "/[locale]/(main)/page": [
       "static/chunks/webpack-03f7c6bc932ce1e3.js",
       "static/chunks/fd9d1056-6922f449a204c2cc.js",
       "static/chunks/117-a1cd97d40ffebe9b.js",
@@ -75,8 +66,9 @@
       "static/chunks/234-de4da8c4aa568aaa.js",
       "static/chunks/972-c6ba9a5476148f18.js",
       "static/chunks/679-bc88efe834c587e6.js",
+      "static/chunks/727-9f220b85175c2797.js",
       "static/chunks/126-6844a110bb617cfa.js",
-      "static/chunks/app/[locale]/(main)/journal/page-0dc02a873442705b.js"
+      "static/chunks/app/[locale]/(main)/page-cf4f9ccbe2e6d7be.js"
     ],
     "/[locale]/(main)/layout": [
       "static/chunks/webpack-03f7c6bc932ce1e3.js",
@@ -89,6 +81,17 @@
       "static/chunks/139-7b00f4b59c9d0601.js",
       "static/chunks/app/[locale]/(main)/layout-0743577ac90904a2.js"
     ],
+    "/[locale]/(main)/journal/page": [
+      "static/chunks/webpack-03f7c6bc932ce1e3.js",
+      "static/chunks/fd9d1056-6922f449a204c2cc.js",
+      "static/chunks/117-a1cd97d40ffebe9b.js",
+      "static/chunks/main-app-796bd2eeac00b035.js",
+      "static/chunks/234-de4da8c4aa568aaa.js",
+      "static/chunks/972-c6ba9a5476148f18.js",
+      "static/chunks/679-bc88efe834c587e6.js",
+      "static/chunks/126-6844a110bb617cfa.js",
+      "static/chunks/app/[locale]/(main)/journal/page-0dc02a873442705b.js"
+    ],
     "/[locale]/(main)/journal/annales/page": [
       "static/chunks/webpack-03f7c6bc932ce1e3.js",
       "static/chunks/fd9d1056-6922f449a204c2cc.js",
@@ -100,17 +103,14 @@
       "static/chunks/126-6844a110bb617cfa.js",
       "static/chunks/app/[locale]/(main)/journal/annales/page-6704638a31c47bcb.js"
     ],
-    "/[locale]/(main)/page": [
+    "/[locale]/(legal)/plan-du-site/page": [
       "static/chunks/webpack-03f7c6bc932ce1e3.js",
       "static/chunks/fd9d1056-6922f449a204c2cc.js",
       "static/chunks/117-a1cd97d40ffebe9b.js",
       "static/chunks/main-app-796bd2eeac00b035.js",
       "static/chunks/234-de4da8c4aa568aaa.js",
       "static/chunks/972-c6ba9a5476148f18.js",
-      "static/chunks/679-bc88efe834c587e6.js",
-      "static/chunks/727-9f220b85175c2797.js",
-      "static/chunks/126-6844a110bb617cfa.js",
-      "static/chunks/app/[locale]/(main)/page-7016263314bf5624.js"
+      "static/chunks/app/[locale]/(legal)/plan-du-site/page-0ac6297e5cbce862.js"
     ],
     "/[locale]/(main)/journal/[slug]/page": [
       "static/chunks/webpack-03f7c6bc932ce1e3.js",

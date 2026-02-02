@@ -103,6 +103,10 @@ export default async function LocaleLayout({
         <html lang={locale}>
             <head>
 
+                {/* Optimisation chargement Fontshare */}
+                <link rel="preconnect" href="https://api.fontshare.com" />
+                <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
+
                 {/* Précharger les polices critiques pour éviter le FOUC */}
                 <link
                     rel="preload"

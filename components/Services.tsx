@@ -54,21 +54,11 @@ const ServiceColumn: React.FC<ServiceProps & { index: number; investmentLabel: s
     hover: { x: 6, transition: { duration: 0.8, ease: LUXURY_EASE } }
   };
 
-  const handleCtaClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const targetId = 'contact';
-    const element = document.getElementById(targetId);
-    if (element) {
-      // 1. Update URL without reload
-      const newUrl = `${window.location.pathname}?ambition=${index + 1}#${targetId}`;
-      window.history.pushState({}, '', newUrl);
+  const handleCtaClick = () => {
+    // 1. Dispatch Event for Contact Form (Fast sync task)
+    window.dispatchEvent(new CustomEvent('ambition-update', { detail: { ambition: index + 1 } }));
 
-      // 2. Smooth Scroll
-      element.scrollIntoView({ behavior: 'smooth' });
-
-      // 3. Dispatch Event for Contact Form
-      window.dispatchEvent(new CustomEvent('ambition-update', { detail: { ambition: index + 1 } }));
-    }
+    // 2. No manual scroll - CSS 'scroll-behavior: smooth' handles the href="#contact"
   };
 
   return (
@@ -170,7 +160,7 @@ const ServiceColumn: React.FC<ServiceProps & { index: number; investmentLabel: s
 
           {isPrimary ? (
             <a
-              href="#contact"
+              href={`?ambition=${index + 1}#contact`}
               onClick={handleCtaClick}
               className="relative w-full py-4 xl:py-5 text-[10px] uppercase tracking-[0.25em] bg-brass text-ink border border-brass group transition-all duration-500 hover:bg-ink hover:text-brass flex items-center justify-center no-underline cursor-pointer"
             >
@@ -178,7 +168,7 @@ const ServiceColumn: React.FC<ServiceProps & { index: number; investmentLabel: s
             </a>
           ) : (
             <motion.a
-              href="#contact"
+              href={`?ambition=${index + 1}#contact`}
               onClick={handleCtaClick}
               className="w-full py-4 xl:py-5 text-[10px] uppercase tracking-[0.25em] transition-all duration-500 border relative overflow-hidden flex items-center justify-center bg-transparent text-paper border-paper/20 hover:bg-brass hover:text-ink hover:border-brass no-underline cursor-pointer"
             >

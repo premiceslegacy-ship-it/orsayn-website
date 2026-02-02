@@ -183,6 +183,7 @@ export default function Hero() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1400px"
                       className="object-cover mix-blend-multiply opacity-90"
                       priority
+                      fetchPriority="high"
                       quality={90}
                     />
                   </motion.div>
