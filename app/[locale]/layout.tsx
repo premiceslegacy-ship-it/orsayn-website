@@ -111,6 +111,7 @@ export default async function LocaleLayout({
                     href="https://api.fontshare.com/v2/css?f[]=boska@200,300,400,500,700,900&f[]=general-sans@200,300,400,500,600,700&display=swap"
                     rel="stylesheet"
                 />
+                <meta name="google-site-verification" content="google9133f7da927b5f1d.html " />
             </head>
             <body className="min-h-screen bg-[#FFFAF1] text-[#1A1A1A] overflow-x-hidden antialiased selection:bg-[#1A1A1A] selection:text-[#FFFAF1]">
 
