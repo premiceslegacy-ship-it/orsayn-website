@@ -170,7 +170,7 @@ const ServiceColumn: React.FC<ServiceProps & { index: number; investmentLabel: s
             <motion.a
               href={`?ambition=${index + 1}#contact`}
               onClick={handleCtaClick}
-              className="w-full py-4 xl:py-5 text-[10px] uppercase tracking-[0.25em] transition-all duration-500 border relative overflow-hidden flex items-center justify-center bg-transparent text-paper border-paper/20 hover:bg-brass hover:text-ink hover:border-brass no-underline cursor-pointer"
+              className="w-full py-4 xl:py-5 text-[10px] uppercase tracking-[0.25em] transition-colors duration-500 border relative overflow-hidden flex items-center justify-center bg-transparent text-paper border-paper/20 hover:bg-brass hover:text-ink hover:border-brass no-underline cursor-pointer"
             >
               <motion.span variants={ctaSlide} className="relative z-10 flex items-center gap-2">
                 {ctaText}

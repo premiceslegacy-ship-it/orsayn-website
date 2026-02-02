@@ -100,10 +100,8 @@ export default function Hero() {
             {/* Typography refined for mobile/tablet symmetry */}
             {/* Typography refined for mobile/tablet symmetry - LCP OPTIMIZED: No start hidden */}
             <motion.h1
-              variants={itemVariants}
-              initial="visible"
-              animate="visible"
-              // LCP FIX: Force immediate render (no opacity transition) for the largest paint
+              initial={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0 }}
               className="font-serif font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] md:leading-[1.1] text-ink mb-6 md:mb-10 lg:mb-12 tracking-tight"
             >
@@ -112,9 +110,8 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              variants={itemVariants}
-              initial="visible"
-              animate="visible"
+              initial={{ opacity: 1, y: 0 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0 }}
               className="text-sm sm:text-base md:text-lg text-ink/80 leading-relaxed font-light max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl mx-auto mb-10 md:mb-14 lg:mb-16"
             >
