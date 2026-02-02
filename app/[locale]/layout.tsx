@@ -104,6 +104,7 @@ export default async function LocaleLayout({
     return (
         <html lang={locale}>
             <head>
+                <meta name="google-site-verification" content="hqhFXIWhj5db1OtG57ao2UimnRnaDCJDQ7GnQSZHI_g" />
                 {/* Précharger les polices critiques pour éviter le FOUC */}
                 <link
                     rel="preload"
