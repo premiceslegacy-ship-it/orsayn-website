@@ -104,6 +104,8 @@ export default function Hero() {
 
             <motion.p
               variants={itemVariants}
+              initial="visible"
+              animate="visible"
               className="text-sm sm:text-base md:text-lg text-ink/80 leading-relaxed font-light max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl mx-auto mb-10 md:mb-14 lg:mb-16"
             >
               {t('description')}
