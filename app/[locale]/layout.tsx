@@ -99,6 +99,12 @@ export default async function LocaleLayout({
     return (
         <html lang={locale}>
             <head>
+                {/* Précharger les polices critiques pour éviter le FOUC */}
+                <link
+                    rel="preload"
+                    href="https://api.fontshare.com/v2/css?f[]=boska@200,300,400,500,700,900&f[]=general-sans@200,300,400,500,600,700&display=swap"
+                    as="style"
+                />
                 <link
                     href="https://api.fontshare.com/v2/css?f[]=boska@200,300,400,500,700,900&f[]=general-sans@200,300,400,500,600,700&display=swap"
                     rel="stylesheet"

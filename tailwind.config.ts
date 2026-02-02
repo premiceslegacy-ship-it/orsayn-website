@@ -13,8 +13,8 @@ const config: Config = {
                 brass: '#D4B35D',
             },
             fontFamily: {
-                serif: ['"Boska"', 'serif'],
-                sans: ['"General Sans"', 'sans-serif'],
+                serif: ['"Boska"', 'Georgia', '"Times New Roman"', 'serif'],
+                sans: ['"General Sans"', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'sans-serif'],
             },
             transitionTimingFunction: {
                 'luxury': 'cubic-bezier(0.22, 1, 0.36, 1)',

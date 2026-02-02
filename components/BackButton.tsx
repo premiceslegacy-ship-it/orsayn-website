@@ -11,12 +11,8 @@ export default function BackButton() {
     const locale = useLocale();
 
     const handleBack = () => {
-        // Naviguer vers l'accueil puis scroller au footer en bas de page
-        router.push('/');
-        // Attendre que la navigation soit complète pour scroller tout en bas
-        setTimeout(() => {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'instant' });
-        }, 100);
+        // Utiliser l'historique du navigateur pour revenir à la page précédente
+        router.back();
     };
 
     return (
