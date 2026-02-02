@@ -1,14 +1,14 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/sitemap.xml/route": "app/sitemap.xml/route.js",
   "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
   "/api/contact/route": "app/api/contact/route.js",
-  "/[locale]/(legal)/confidentialite/page": "app/[locale]/(legal)/confidentialite/page.js",
   "/[locale]/(legal)/mentions-legales/page": "app/[locale]/(legal)/mentions-legales/page.js",
   "/[locale]/(legal)/cgv/page": "app/[locale]/(legal)/cgv/page.js",
   "/[locale]/(legal)/plan-du-site/page": "app/[locale]/(legal)/plan-du-site/page.js",
-  "/[locale]/(main)/page": "app/[locale]/(main)/page.js",
-  "/[locale]/(main)/journal/annales/page": "app/[locale]/(main)/journal/annales/page.js",
+  "/[locale]/(legal)/confidentialite/page": "app/[locale]/(legal)/confidentialite/page.js",
   "/[locale]/(main)/journal/page": "app/[locale]/(main)/journal/page.js",
+  "/[locale]/(main)/journal/annales/page": "app/[locale]/(main)/journal/annales/page.js",
+  "/[locale]/(main)/page": "app/[locale]/(main)/page.js",
   "/[locale]/(main)/journal/[slug]/page": "app/[locale]/(main)/journal/[slug]/page.js"
 }

@@ -4,6 +4,8 @@ import { getMessages, getTranslations } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import NoiseOverlay from '@/components/NoiseOverlay';
 import '../globals.css';
+import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from '@vercel/analytics/react';
 
 const locales = ['fr', 'en'] as const;
 
@@ -144,6 +146,8 @@ export default async function LocaleLayout({
                 <NextIntlClientProvider locale={locale} messages={messages}>
                     <NoiseOverlay />
                     {children}
+                    <SpeedInsights />
+                    <Analytics />
                 </NextIntlClientProvider>
 
             </body>
