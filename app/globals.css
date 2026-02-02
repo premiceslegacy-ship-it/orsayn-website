@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 120px;
+    /* Compense la navigation fixe + marge */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Désactiver smooth scroll pour utilisateurs préférant mouvement réduit */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-paper text-ink;
+    /* Force le moteur de rendu de texte Haute Qualité */
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+
+  /* REPRISE EXACTE DU STYLE DE SELECTION DU MVP */
+  ::selection {
+    background: #1A1A1A;
+    color: #FFFAF1;
+  }
+}
+
+/* REPRISE EXACTE DE LA SCROLLBAR DU MVP */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFAF1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1A1A1A;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+/* UTILITAIRE DE TRANSITION FLUIDE - Optimisé pour fluidité premium */
+.velours-transition {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  transition-duration: 500ms;
+}
+
+/* ===== SHIMMER BUTTON ANIMATION PREMIUM ===== */
+@keyframes shimmer-sweep {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.8;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.shimmer-effect {
+  animation: shimmer-sweep 3.5s ease-in-out infinite;
+}
+
+/* Pause l'animation au hover pour effet subtil */
+.shimmer-button:hover .shimmer-effect {
+  animation-play-state: paused;
+}

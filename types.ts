@@ -13,6 +13,7 @@ export interface ServiceProps {
   description: string | React.ReactNode;
   features: string[];
   isPrimary?: boolean;
+  ctaText?: string;
 }
 
 export interface ContentBlockProps {
