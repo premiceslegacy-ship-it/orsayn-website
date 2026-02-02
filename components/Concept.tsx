@@ -38,7 +38,7 @@ const Concept: React.FC = () => {
                                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                                 className="relative z-10 text-center xl:text-left"
                             >
-                                <h2 className="font-serif text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl text-ink leading-[0.9] md:leading-[0.85] tracking-tight">
+                                <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl 2xl:text-9xl text-ink leading-[0.9] md:leading-[0.85] tracking-tight">
                                     <span className="block xl:-ml-1">{t('titleLine1')}</span>
                                     <span className="block italic text-ink/80 mt-2 md:mt-4 xl:ml-16 whitespace-nowrap">{t('titleLine2')}</span>
                                 </h2>

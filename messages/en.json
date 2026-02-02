@@ -8,7 +8,9 @@
         "preambule": "PREAMBLE",
         "approche": "THE APPROACH",
         "revue": "REVIEW",
-        "cta": "ENQUIRE"
+        "cta": "ENQUIRE",
+        "openMenu": "Open Menu",
+        "closeMenu": "Close Menu"
     },
     "hero": {
         "tagline": "DIGITAL PLATFORM FOR BUSINESS LAW FIRMS",
@@ -127,7 +129,7 @@
             "title": "Authority",
             "subtitle": "COMPLETE SYSTEM",
             "price": "€15k",
-            "timeline": "Hybrid",
+            "timeline": "Signature",
             "description": "The comprehensive approach. We deploy the platform as absolute priority, then immediately activate the influence engine. It's the fast track to preempting your market before the competition.",
             "features": {
                 "f1": "Included: Foundation Offer",
@@ -341,6 +343,7 @@
     "journal": {
         "title": "REVIEW",
         "readTime": "read",
+        "readArticle": "Read Article",
         "consultDoctrine": "Consult Doctrine",
         "consultArchives": "Consult Archives",
         "back": "Back",

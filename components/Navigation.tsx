@@ -47,7 +47,7 @@ const Navigation: React.FC = () => {
             <img
               src="/logo/SIMPLIFIED LOGO FINAL.svg"
               alt="ORSAYN"
-              className="h-8 w-auto md:h-10 group-hover:scale-[1.02] velours-transition"
+              className="h-8 w-auto md:h-10 group-hover:scale-[1.02] transition-transform duration-300 ease-out"
             />
           </a>
 
@@ -68,7 +68,7 @@ const Navigation: React.FC = () => {
           </div>
 
           {/* 3. LANGUAGE SWITCHER & CTA - Right aligned (Desktop) */}
-          <div className="hidden lg:flex items-center gap-10 pr-0 xl:pr-8">
+          <div className="hidden lg:flex items-center gap-14 pr-0 xl:pr-8">
             <LanguageSwitcher />
             <a
               href="/#contact"
@@ -87,9 +87,12 @@ const Navigation: React.FC = () => {
           </div>
 
           {/* Mobile/Tablet Toggle */}
+          {/* Mobile/Tablet Toggle - A11y & Touch Target Optimized */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="lg:hidden text-ink z-50 p-2 hover:bg-ink/5 rounded-full transition-colors"
+            className="lg:hidden text-ink z-50 p-2 hover:bg-ink/5 rounded-full transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center focus:outline-none focus-visible:ring-2 focus-visible:ring-brass"
+            aria-label={isMobileOpen ? t('closeMenu') : t('openMenu')}
+            aria-expanded={isMobileOpen}
           >
             {isMobileOpen ? <X size={24} strokeWidth={1} /> : <Menu size={24} strokeWidth={1} />}
           </button>

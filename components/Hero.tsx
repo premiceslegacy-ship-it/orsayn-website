@@ -68,6 +68,13 @@ export default function Hero() {
         ease: [0.22, 1, 0.36, 1],
       },
     },
+    // MOBILE OPTIMIZATION: Instant appear
+    visibleMobile: {
+      opacity: 1,
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 0 }
+    }
   };
 
   return (
@@ -96,6 +103,8 @@ export default function Hero() {
               variants={itemVariants}
               initial="visible"
               animate="visible"
+              // LCP FIX: Force immediate render (no opacity transition) for the largest paint
+              transition={{ duration: 0 }}
               className="font-serif font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] md:leading-[1.1] text-ink mb-6 md:mb-10 lg:mb-12 tracking-tight"
             >
               {t('titleLine1')} <br />
@@ -106,6 +115,7 @@ export default function Hero() {
               variants={itemVariants}
               initial="visible"
               animate="visible"
+              transition={{ duration: 0 }}
               className="text-sm sm:text-base md:text-lg text-ink/80 leading-relaxed font-light max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl mx-auto mb-10 md:mb-14 lg:mb-16"
             >
               {t('description')}

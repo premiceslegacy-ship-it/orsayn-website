@@ -331,6 +331,7 @@ const Services: React.FC = () => {
               <button
                 onClick={prevSlide}
                 disabled={activeIndex === 0}
+                aria-label={t('controls.prev')}
                 className={`group flex items-center gap-2 text-[10px] uppercase tracking-widest py-3 px-6 border border-paper/10 transition-all duration-300
                             ${activeIndex === 0
                     ? 'opacity-30 cursor-not-allowed text-paper'
@@ -350,6 +351,7 @@ const Services: React.FC = () => {
               <button
                 onClick={nextSlide}
                 disabled={activeIndex === services.length - 1}
+                aria-label={t('controls.next')}
                 className={`group flex items-center gap-2 text-[10px] uppercase tracking-widest py-3 px-6 border border-paper/10 transition-all duration-300
                             ${activeIndex === services.length - 1
                     ? 'opacity-30 cursor-not-allowed text-paper'

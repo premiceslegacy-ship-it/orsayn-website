@@ -30,7 +30,7 @@ const InputField = ({
   return (
     <div className="relative group pt-6 pb-2 border-b border-ink/10 transition-colors duration-500 hover:border-ink/30">
       <div className="flex justify-between items-center mb-2">
-        <label className={`text-[9px] uppercase tracking-[0.2em] transition-colors duration-300 ${isFocused ? 'text-brass' : 'text-ink/40'}`}>
+        <label htmlFor={number} className={`text-[9px] uppercase tracking-[0.2em] transition-colors duration-300 cursor-pointer ${isFocused ? 'text-brass' : 'text-ink/40'}`}>
           {label} {required && '*'}
         </label>
         <span className="font-mono text-[9px] text-ink/20">{number}</span>
@@ -39,6 +39,7 @@ const InputField = ({
       {isSelect ? (
         <div className="relative">
           <select
+            id={number}
             className="w-full bg-transparent font-serif text-lg md:text-2xl lg:text-2xl text-ink outline-none appearance-none cursor-pointer py-2"
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
@@ -59,6 +60,7 @@ const InputField = ({
         </div>
       ) : type === "textarea" ? (
         <textarea
+          id={number}
           className="w-full bg-transparent font-serif text-lg md:text-2xl lg:text-2xl text-ink placeholder:text-ink/10 outline-none py-2 resize-none"
           placeholder={placeholder}
           onFocus={() => setIsFocused(true)}
@@ -70,6 +72,7 @@ const InputField = ({
         />
       ) : (
         <input
+          id={number}
           type={type}
           className="w-full bg-transparent font-serif text-lg md:text-2xl lg:text-2xl text-ink placeholder:text-ink/10 outline-none py-2"
           placeholder={placeholder}

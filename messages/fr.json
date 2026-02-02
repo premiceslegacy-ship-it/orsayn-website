@@ -8,7 +8,9 @@
         "preambule": "PRÉAMBULE",
         "approche": "L'APPROCHE",
         "revue": "REVUE",
-        "cta": "PRENDRE ATTACHE"
+        "cta": "PRENDRE ATTACHE",
+        "openMenu": "Ouvrir le menu",
+        "closeMenu": "Fermer le menu"
     },
     "hero": {
         "tagline": "PLATEFORME DIGITALE POUR CABINETS D'AFFAIRES",
@@ -127,7 +129,7 @@
             "title": "L'Autorité",
             "subtitle": "SYSTÈME COMPLET",
             "price": "15k€",
-            "timeline": "Hybride",
+            "timeline": "Signature",
             "description": "L'approche globale. Nous déployons la plateforme en priorité absolue, puis activons immédiatement le moteur d'influence. C'est la voie rapide pour préempter votre marché avant la concurrence.",
             "features": {
                 "f1": "Inclus : Offre Fondation",
@@ -341,6 +343,7 @@
     "journal": {
         "title": "REVUE",
         "readTime": "de lecture",
+        "readArticle": "Lire l'article",
         "consultDoctrine": "Consulter la Doctrine",
         "consultArchives": "Consulter les Annales",
         "back": "Retour",
