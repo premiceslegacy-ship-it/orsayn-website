@@ -47,7 +47,7 @@ export default function Hero() {
 
   // ENTRANCE ANIMATIONS
   const containerVariants: Variants = {
-    hidden: { opacity: 0 },
+    hidden: { opacity: 1 },
     visible: {
       opacity: 1,
       transition: {
