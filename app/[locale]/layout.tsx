@@ -9,7 +9,7 @@ import { Analytics } from '@vercel/analytics/next';
 
 const locales = ['fr', 'en'] as const;
 
-// 1. CONFIGURATION VIEWPORT (Séparée pour Next.js 14+)
+// 1. CONFIGURATION VIEWPORT
 export const viewport: Viewport = {
     width: 'device-width',
     initialScale: 1,
@@ -102,21 +102,10 @@ export default async function LocaleLayout({
     return (
         <html lang={locale}>
             <head>
-
-                {/* Optimisation chargement Fontshare */}
-                <link rel="preconnect" href="https://api.fontshare.com" />
-                <link rel="preconnect" href="https://cdn.fontshare.com" crossOrigin="anonymous" />
-
-                {/* Précharger les polices critiques pour éviter le FOUC */}
-                <link
-                    rel="preload"
-                    href="https://api.fontshare.com/v2/css?f[]=boska@200,300,400,500,700,900&f[]=general-sans@200,300,400,500,600,700&display=swap"
-                    as="style"
-                />
-                <link
-                    href="https://api.fontshare.com/v2/css?f[]=boska@200,300,400,500,700,900&f[]=general-sans@200,300,400,500,600,700&display=swap"
-                    rel="stylesheet"
-                />
+                {/* Manual Local Font Preloading for LCP */}
+                <link rel="preload" href="/fonts/Boska-300.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+                <link rel="preload" href="/fonts/Boska-500.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+                <link rel="preload" href="/fonts/GeneralSans-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
             </head>
             <body className="min-h-screen bg-[#FFFAF1] text-[#1A1A1A] overflow-x-hidden antialiased selection:bg-[#1A1A1A] selection:text-[#FFFAF1]">
 

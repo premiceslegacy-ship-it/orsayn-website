@@ -108,7 +108,7 @@ const Perspectives: React.FC = () => {
                       </div>
 
                       {/* Bottom Text */}
-                      <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-700 ease-luxury">
+                      <div className="transform md:translate-y-2 md:group-hover:translate-y-0 transition-transform duration-700 ease-luxury">
                         <span className="block text-[9px] font-mono text-paper/40 mb-3 uppercase tracking-wider">
                           {formatDate(article.publishDate)}
                         </span>
@@ -117,8 +117,8 @@ const Perspectives: React.FC = () => {
                           {article.title}
                         </h3>
 
-                        {/* Description - Fade In on Hover */}
-                        <div className="h-0 overflow-hidden group-hover:h-auto transition-all duration-700">
+                        {/* Description - Fade In on Hover (DESKTOP ONLY) */}
+                        <div className="hidden md:block h-0 overflow-hidden md:group-hover:h-auto transition-all duration-700">
                           <p className="text-xs text-paper/70 font-light leading-relaxed mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100 line-clamp-2">
                             {article.description}
                           </p>
