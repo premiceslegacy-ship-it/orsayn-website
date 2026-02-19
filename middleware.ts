@@ -11,7 +11,6 @@ export default function middleware(request: NextRequest) {
     const host = request.headers.get('host') || ''
 
     // Directive 2: Permanent 308 redirect non-www → www
-    // This ensures orsayn.com/* → www.orsayn.com/* (no crawl loop)
     if (
         host === 'orsayn.com' ||
         host === 'http://orsayn.com' ||
@@ -27,5 +26,5 @@ export default function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/((?!api|_next|_vercel|.*\\..*).)']
+    matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
 }
