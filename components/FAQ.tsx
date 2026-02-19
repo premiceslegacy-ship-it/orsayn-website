@@ -18,17 +18,17 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick, in
     <div className="border-t border-ink/10 first:border-t-0">
       <button
         onClick={onClick}
-        className="w-full py-6 md:py-8 flex justify-between items-start text-left group transition-colors duration-500"
+        className="w-full py-6 md:py-8 flex justify-between items-start text-left group transition-colors duration-200"
       >
         <span className="flex items-baseline gap-4 md:gap-8 pr-4 md:pr-8">
           <span className="text-[9px] font-mono text-ink/30 pt-1">{`0${index + 1}`}</span>
-          <span className={`font-serif text-lg md:text-2xl lg:text-3xl transition-colors duration-300 ${isOpen ? 'text-ink' : 'text-ink/70 group-hover:text-ink'}`}>
+          <span className={`font-serif text-lg md:text-2xl lg:text-3xl transition-colors duration-200 ${isOpen ? 'text-ink' : 'text-ink/70 group-hover:text-ink'}`}>
             {question}
           </span>
         </span>
 
-        <div className={`relative flex-shrink-0 w-6 h-6 md:w-8 md:h-8 flex items-center justify-center transition-transform duration-500 ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
-          <Plus className={`w-4 h-4 md:w-6 md:h-6 transition-colors duration-300 ${isOpen ? 'text-brass' : 'text-ink/30 group-hover:text-ink'}`} />
+        <div className={`relative flex-shrink-0 w-6 h-6 md:w-8 md:h-8 flex items-center justify-center transition-transform duration-200 ease-out ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
+          <Plus className={`w-4 h-4 md:w-6 md:h-6 transition-colors duration-200 ${isOpen ? 'text-brass' : 'text-ink/30 group-hover:text-ink'}`} />
         </div>
       </button>
 
@@ -38,8 +38,9 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick, in
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden"
+            transition={{ type: "spring", bounce: 0, duration: 0.2 }}
+            className="overflow-hidden transform-gpu"
+            style={{ willChange: "height, opacity" }}
           >
             <div className="pl-6 md:pl-14 pb-8 md:pb-10 pr-4 md:pr-12 max-w-3xl">
               <p className="text-sm md:text-base font-light text-ink/70 leading-relaxed">
@@ -89,7 +90,7 @@ const FAQ: React.FC = () => {
   ];
 
   return (
-    <section className="py-20 md:py-32 bg-paper border-b border-ink/10 relative z-10">
+    <section className="py-20 md:py-32 bg-paper border-b border-ink/10 relative z-10 transform-gpu">
       <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-16 xl:px-24">
 
         {/* Layout Grid */}

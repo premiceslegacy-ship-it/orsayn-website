@@ -1,7 +1,8 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://orsayn.com';
+    // Directive 2: All URLs use www canonical base — no redirects from sitemap entries
+    const baseUrl = 'https://www.orsayn.com';
     const locales = ['fr', 'en'];
 
     const routes: MetadataRoute.Sitemap = [];

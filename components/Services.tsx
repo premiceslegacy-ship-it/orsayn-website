@@ -8,31 +8,33 @@ import { useTranslations } from 'next-intl';
 
 const ServiceColumn: React.FC<ServiceProps & { index: number; investmentLabel: string; htLabel: string }> = ({ title, subtitle, price, timeline, description, features, index, isPrimary, ctaText, investmentLabel, htLabel }) => {
 
-  const entryDelay = index * 0.12;
+  const entryDelay = index * 0.05;
 
   const romanNumerals = ["I", "II", "III", "IV", "V", "VI", "VII"];
 
   const LUXURY_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 40, scale: 0.97 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
-      transition: { duration: 0.9, ease: LUXURY_EASE, delay: entryDelay }
+      transition: { duration: 0.4, ease: "easeOut", delay: entryDelay }
     },
-    hover: { y: -8, transition: { duration: 0.8, ease: LUXURY_EASE } }
+    hover: {
+      y: -6,
+      transition: { duration: 0.2, ease: "easeOut" }
+    }
   };
 
   const borderDrawVariants: Variants = {
     hidden: { scaleX: 0, scaleY: 0, opacity: 0 },
-    hover: { scaleX: 1, scaleY: 1, opacity: 1, transition: { duration: 0.8, ease: LUXURY_EASE } }
+    hover: { scaleX: 1, scaleY: 1, opacity: 1, transition: { duration: 0.2, ease: "easeOut" } }
   };
 
   const contentContainerVariants: Variants = {
     hidden: {},
-    visible: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } }
+    visible: { transition: { staggerChildren: 0.04, delayChildren: 0.1 } }
   };
 
   const titleReveal: Variants = {
@@ -51,7 +53,7 @@ const ServiceColumn: React.FC<ServiceProps & { index: number; investmentLabel: s
   };
 
   const ctaSlide: Variants = {
-    hover: { x: 6, transition: { duration: 0.8, ease: LUXURY_EASE } }
+    hover: { x: 4, transition: { duration: 0.2, ease: "easeOut" } }
   };
 
   const handleCtaClick = () => {
@@ -68,12 +70,13 @@ const ServiceColumn: React.FC<ServiceProps & { index: number; investmentLabel: s
       whileInView="visible"
       whileHover="hover"
       viewport={{ once: true, amount: 0.15 }}
-      className={`relative flex flex-col h-full group transition-shadow duration-500 w-full
+      className={`relative flex flex-col h-full group w-full will-change-transform transform-gpu
         ${isPrimary
           ? 'z-20 bg-ink border border-brass/40 shadow-xl'
-          : 'z-10 bg-paper/[0.01] border border-paper/10 hover:shadow-2xl hover:shadow-ink/5'
+          : 'z-10 bg-paper/[0.01] border border-paper/10'
         }
       `}
+      style={{ backfaceVisibility: 'hidden' }}
     >
 
 
@@ -106,7 +109,7 @@ const ServiceColumn: React.FC<ServiceProps & { index: number; investmentLabel: s
           <div className="overflow-hidden mb-4 xl:mb-6">
             <motion.h3
               variants={titleReveal}
-              className={`font-serif text-2xl md:text-3xl lg:text-4xl transition-colors duration-500
+              className={`font-serif text-2xl md:text-3xl lg:text-4xl transition-colors duration-300
                     ${isPrimary
                   ? 'text-paper group-hover:text-brass'
                   : 'text-paper/70 group-hover:text-paper'
@@ -136,9 +139,9 @@ const ServiceColumn: React.FC<ServiceProps & { index: number; investmentLabel: s
             <motion.li
               key={idx}
               variants={simpleFade}
-              className="flex items-baseline text-sm group-hover:translate-x-1 transition-transform duration-300"
+              className="flex items-baseline text-sm group-hover:translate-x-1 transition-transform duration-200"
             >
-              <span className={`mr-4 font-serif text-[10px] w-4 text-right flex-shrink-0 transition-colors duration-300 ${isPrimary ? 'text-brass' : 'text-paper/30 group-hover:text-paper/60'}`}>
+              <span className={`mr-4 font-serif text-[10px] w-4 text-right flex-shrink-0 transition-colors duration-200 ${isPrimary ? 'text-brass' : 'text-paper/30 group-hover:text-paper/60'}`}>
                 {romanNumerals[idx]}.
               </span>
               <span className={`${isPrimary ? 'text-paper/80' : 'text-paper/70'} font-light`}>{feature}</span>
@@ -162,7 +165,7 @@ const ServiceColumn: React.FC<ServiceProps & { index: number; investmentLabel: s
             <a
               href={`?ambition=${index + 1}#contact`}
               onClick={handleCtaClick}
-              className="relative w-full py-4 xl:py-5 text-[10px] uppercase tracking-[0.25em] bg-brass text-ink border border-brass group transition-all duration-500 hover:bg-ink hover:text-brass flex items-center justify-center no-underline cursor-pointer"
+              className="relative w-full py-4 xl:py-5 text-[10px] uppercase tracking-[0.25em] bg-brass text-ink border border-brass group transition-all duration-300 hover:bg-ink hover:text-brass flex items-center justify-center no-underline cursor-pointer"
             >
               <span className="relative z-20 font-medium">{ctaText}</span>
             </a>
@@ -170,7 +173,7 @@ const ServiceColumn: React.FC<ServiceProps & { index: number; investmentLabel: s
             <motion.a
               href={`?ambition=${index + 1}#contact`}
               onClick={handleCtaClick}
-              className="w-full py-4 xl:py-5 text-[10px] uppercase tracking-[0.25em] transition-colors duration-500 border relative overflow-hidden flex items-center justify-center bg-transparent text-paper border-paper/20 hover:bg-brass hover:text-ink hover:border-brass no-underline cursor-pointer"
+              className="w-full py-4 xl:py-5 text-[10px] uppercase tracking-[0.25em] transition-colors duration-300 border relative overflow-hidden flex items-center justify-center bg-transparent text-paper border-paper/20 hover:bg-brass hover:text-ink hover:border-brass no-underline cursor-pointer"
             >
               <motion.span variants={ctaSlide} className="relative z-10 flex items-center gap-2">
                 {ctaText}
@@ -263,7 +266,7 @@ const Services: React.FC = () => {
   return (
     <section id="offres" className="py-20 md:py-32 lg:py-48 relative bg-ink border-b border-paper/10 overflow-hidden">
 
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-paper/[0.02] blur-[120px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-paper/[0.015] blur-[100px] rounded-full pointer-events-none transform-gpu"></div>
 
       <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-16 xl:px-24 relative z-10">
 

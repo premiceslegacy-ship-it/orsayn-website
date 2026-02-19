@@ -30,32 +30,34 @@ export async function generateMetadata({
     const t = await getTranslations({ locale, namespace: 'metadata' });
 
     return {
-        metadataBase: new URL('https://orsayn.com'),
+        metadataBase: new URL('https://www.orsayn.com'),
         title: {
             default: t('title'),
-            template: t('titleTemplate')
+            template: `%s | Orsayn`
         },
         description: t('description'),
         keywords: [
+            "transactionnel M&A private equity",
             "plateforme digitale cabinet d'avocats",
             "refonte site cabinet d'affaires",
             "site web private equity",
             "création site M&A fusion acquisition",
+            "haut de bilan banques d'affaires",
             "plateforme digitale souveraine juridique",
             "refonte site cabinet international",
             "cybersécurité données stratégiques",
             "développement web haute performance",
-            "SEO, AEO et référencement IA"
+            "SEO AEO référencement IA"
         ],
         authors: [{ name: 'Orsayn' }],
         creator: 'Orsayn',
         publisher: 'Orsayn',
         alternates: {
-            canonical: `https://orsayn.com/${locale}`,
+            canonical: `https://www.orsayn.com/${locale}`,
             languages: {
-                'fr': 'https://orsayn.com/fr',
-                'en': 'https://orsayn.com/en',
-                'x-default': 'https://orsayn.com/fr'
+                'fr': 'https://www.orsayn.com/fr',
+                'en': 'https://www.orsayn.com/en',
+                'x-default': 'https://www.orsayn.com/en'
             }
         },
         icons: {
@@ -65,7 +67,7 @@ export async function generateMetadata({
         openGraph: {
             type: 'website',
             locale: locale === 'fr' ? 'fr_FR' : 'en_US',
-            url: `https://orsayn.com/${locale}`,
+            url: `https://www.orsayn.com/${locale}`,
             siteName: 'Orsayn',
             title: t('title'),
             description: t('description'),
@@ -74,7 +76,7 @@ export async function generateMetadata({
                     url: '/images/og-image.jpg',
                     width: 1200,
                     height: 630,
-                    alt: 'Orsayn - Plateforme digitale souveraine'
+                    alt: 'Orsayn - Plateforme souveraine pour le transactionnel'
                 }
             ]
         },
@@ -117,16 +119,16 @@ export default async function LocaleLayout({
                             '@context': 'https://schema.org',
                             '@type': 'Organization',
                             name: 'Orsayn',
-                            url: 'https://orsayn.com',
-                            logo: 'https://orsayn.com/logo/SECONDARY%20LOGO%20ANTH.svg',
-                            description: "Plateforme digitale souveraine pour cabinets d'avocats",
+                            url: 'https://www.orsayn.com',
+                            logo: 'https://www.orsayn.com/logo/SECONDARY%20LOGO%20ANTH.svg',
+                            description: "Plateformes digitales souveraines pour acteurs du transactionnel (M&A, Private Equity, Droit des affaires, Banques d'affaires)",
                             address: {
                                 '@type': 'PostalAddress',
                                 addressLocality: 'Saint-Avertin',
                                 addressCountry: 'FR'
                             },
                             sameAs: [
-                                'http://www.linkedin.com/in/samuel-mbeboura-b28796293',
+                                'https://www.linkedin.com/company/orsayn',
                                 'https://www.instagram.com/orsaynpartners'
                             ],
                             contactPoint: {

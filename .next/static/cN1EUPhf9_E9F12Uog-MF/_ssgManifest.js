@@ -1,1 +1,0 @@
-self.__SSG_MANIFEST=new Set(["\u002F[locale]","\u002F[locale]\u002Fcgv","\u002F[locale]\u002Fconfidentialite","\u002F[locale]\u002Fjournal","\u002F[locale]\u002Fjournal\u002F[slug]","\u002F[locale]\u002Fjournal\u002Fannales","\u002F[locale]\u002Fmentions-legales","\u002F[locale]\u002Fplan-du-site"]);self.__SSG_MANIFEST_CB&&self.__SSG_MANIFEST_CB()

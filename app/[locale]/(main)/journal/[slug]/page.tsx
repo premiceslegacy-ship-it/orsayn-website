@@ -16,9 +16,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     if (!article) return { title: params.locale === 'en' ? 'Article Not Found | Orsayn' : 'Article Non Trouvé | Orsayn' };
 
+    const canonicalUrl = `https://www.orsayn.com/${params.locale}/journal/${params.slug}`;
+    const altLocale = params.locale === 'fr' ? 'en' : 'fr';
+
     return {
         title: article.title,
         description: article.description,
+        alternates: {
+            canonical: canonicalUrl,
+            languages: {
+                [params.locale]: canonicalUrl,
+                [altLocale]: `https://www.orsayn.com/${altLocale}/journal/${params.slug}`,
+                'x-default': `https://www.orsayn.com/en/journal/${params.slug}`,
+            }
+        },
         openGraph: {
             title: article.title,
             description: article.description,
@@ -67,9 +78,10 @@ export default async function ArticlePage({ params }: Props) {
             name: 'Orsayn',
             logo: {
                 '@type': 'ImageObject',
-                url: 'https://orsayn.com/logo/SECONDARY%20LOGO%20ANTH.svg'
+                url: 'https://www.orsayn.com/logo/SECONDARY%20LOGO%20ANTH.svg'
             }
-        }
+        },
+        url: `https://www.orsayn.com/${params.locale}/journal/${params.slug}`
     };
 
     return (

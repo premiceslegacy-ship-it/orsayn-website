@@ -131,6 +131,17 @@ export default function Hero() {
           transition={{ delay: 1, duration: 1, ease: "easeOut" }}
           className="w-full flex flex-col items-center"
         >
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 1 }}
+            className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-ink/20 mb-12 md:mb-16 flex items-center gap-3"
+          >
+            <span className="w-1 h-1 rounded-full bg-ink/20"></span>
+            {t('performanceLabel')}
+            <span className="w-1 h-1 rounded-full bg-ink/20"></span>
+          </motion.div>
+
           <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.25em] text-ink/40 mb-6 md:mb-8">
             {t('expertiseLabel')}
           </span>

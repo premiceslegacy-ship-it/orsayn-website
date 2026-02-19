@@ -72,10 +72,10 @@ const Footer: React.FC = () => {
                             </div>
                             <div className="flex flex-col items-center xl:items-start gap-3">
                                 <a
-                                    href="http://www.linkedin.com/in/samuel-mbeboura-b28796293"
+                                    href="https://www.linkedin.com/company/orsayn"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    aria-label="Suivre Samuel Mbeboura sur LinkedIn"
+                                    aria-label="Suivre Orsayn sur LinkedIn"
                                     className="group flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink/60 hover:text-ink transition-colors duration-500 ease-luxury"
                                 >
                                     LinkedIn

@@ -1,13 +1,13 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-    const baseUrl = 'https://orsayn.com';
+    const baseUrl = 'https://www.orsayn.com';
     return {
         rules: [
             {
                 userAgent: '*',
-                allow: '/',
-                disallow: ['/api/', '/_next/'],
+                allow: ['/', '/_next/static/', '/_next/image', '/images/'],
+                disallow: ['/api/'],
             },
         ],
         sitemap: `${baseUrl}/sitemap.xml`,

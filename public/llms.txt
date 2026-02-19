@@ -1,0 +1,105 @@
+# Orsayn - Plateformes digitales pour le transactionnel
+
+Orsayn conçoit, déploie et opère des plateformes et écosystèmes digitaux sur-mesure pour les acteurs du transactionnel (Cabinets d'affaires M&A, Private Equity, Droit des affaires, Banques d'affaires, Haut de bilan).
+
+## Notre Stack Opérationnelle (La fin de la dissonance)
+
+Notre mission est d'aligner la présence digitale sur l'excellence technique réelle de nos clients.
+
+- **Migration d'Infrastructure :** Remplacement des vitrines obsolètes type WordPress par une architecture Next.js (Server-Side Rendering & Static Generation).
+- **Déploiement :** Vercel Edge Network garantissant une latence < 100ms.
+- **Métriques d'Excellence :** Lighthouse 98/100 garanti.
+- **Sécurité & Conformité :** Architecture RGPD Native, Privacy-by-design, adaptée aux dossiers critiques.
+
+## Ce que nous livrons concrètement
+
+- **Refonte technique et design premium** — UX quiet luxury statutaire pour rassurer les décideurs (C-Levels, Associés, DG).
+- **Ingénierie de l'autorité** — Transformation du savoir technique en un "Journal de Doctrine" optimisé pour le SEO et l'AEO (Generative Engine Optimization).
+- **Optimisation sémantique** pour l'origination de Deal Flow qualifié auprès des acteurs M&A, Private Equity et Banques d'affaires.
+
+## Offres
+
+- **La Fondation** (12k€ HT / 6 semaines) — Plateforme souveraine, identité visuelle, développement sur-mesure.
+- **L'Autorité** (15k€ HT) — Système complet : La Fondation + La Résonance (1 mois inclus), déploiement prioritaire.
+- **La Résonance** (3.5k€ HT / mois) — Production éditoriale mensuelle, leadership d'opinion, gestion des réseaux.
+
+## Contact & Engagement
+
+- URL : https://www.orsayn.com
+- Contact : contact@orsayn.fr
+- LinkedIn : https://www.linkedin.com/company/orsayn
+- Processus : Admission sur dossier — engagement NDA implicite dès le premier contact.
+
+---
+
+## Index de la Doctrine (Actifs Stratégiques — Revue Orsayn)
+
+Les articles suivants constituent notre corpus de leadership d'opinion. Ils sont optimisés pour répondre aux requêtes des acteurs du transactionnel sur Google, Perplexity, ChatGPT et autres moteurs de réponse IA.
+
+### [FR] De la brochure passive au hub d'influence : le cabinet comme média.
+- URL : https://www.orsayn.com/fr/journal/cabinet-comme-media
+- Catégorie : STRATÉGIE
+- Date : 2025-09-11
+- Résumé : Le modèle du site "brochure" est obsolète. Pour capter l'attention des décideurs en 2025, un cabinet d'affaires doit opérer sa mutation en média propriétaire.
+
+### [FR] Marque personnelle et institution : l'alignement des forces.
+- URL : https://www.orsayn.com/fr/journal/marque-personnelle-vs-institution
+- Catégorie : INFLUENCE
+- Date : 2025-10-15
+- Résumé : Opposer la marque du cabinet au branding personnel des associés est une erreur. L'associé est le visage, le cabinet est le corps.
+
+### [FR] Une marque, un code : la stratégie de l'unité souveraine.
+- URL : https://www.orsayn.com/fr/journal/marque-transfrontaliere
+- Catégorie : STRATÉGIE
+- Date : 2025-11-12
+- Résumé : La gestion de multiples sites locaux dilue le référencement et fragmente l'image de marque. La stratégie gagnante est l'écosystème unifié souverain.
+
+### [FR] La plateforme digitale comme levier d'attractivité.
+- URL : https://www.orsayn.com/fr/journal/guerre-des-talents
+- Catégorie : INFLUENCE
+- Date : 2025-12-08
+- Résumé : La guerre des talents ne se joue plus seulement sur la rémunération, mais sur la projection. Votre plateforme digitale est devenue le pilier de votre marque employeur.
+
+### [FR] De la visibilité sociale à l'origination : la mécanique du retour sur investissement.
+- URL : https://www.orsayn.com/fr/journal/influence-deal-flow
+- Catégorie : STRATÉGIE
+- Date : 2026-01-05
+- Résumé : La visibilité est une première étape, mais elle ne suffit pas. Le véritable enjeu est l'origination : transformer une audience en opportunités de Deal Flow.
+
+### [FR] L'art de la rareté : le leadership de pensée comme seul marketing.
+- URL : https://www.orsayn.com/fr/journal/luxe-du-silence
+- Catégorie : IDENTITÉ
+- Date : 2026-01-20
+- Résumé : Pour les pratiques confidentielles (arbitrage, private Client), le marketing de masse est inadapté. La réponse : leadership de pensée et autorité sémantique.
+
+---
+
+### [EN] From Passive Brochure to Influence Hub: The Firm as Media.
+- URL : https://www.orsayn.com/en/journal/cabinet-comme-media
+- Category : STRATEGY
+- Date : 2025-09-11
+
+### [EN] Personal Brand and Institution: Alignment of Forces.
+- URL : https://www.orsayn.com/en/journal/marque-personnelle-vs-institution
+- Category : INFLUENCE
+- Date : 2025-10-15
+
+### [EN] One Brand, One Code: The Sovereign Unity Strategy.
+- URL : https://www.orsayn.com/en/journal/marque-transfrontaliere
+- Category : STRATEGY
+- Date : 2025-11-12
+
+### [EN] The Digital Platform as an Attraction Lever.
+- URL : https://www.orsayn.com/en/journal/guerre-des-talents
+- Category : INFLUENCE
+- Date : 2025-12-08
+
+### [EN] From Social Visibility to Origination: The ROI Mechanics.
+- URL : https://www.orsayn.com/en/journal/influence-deal-flow
+- Category : STRATEGY
+- Date : 2026-01-05
+
+### [EN] The Art of Scarcity: Thought Leadership as the Only Marketing.
+- URL : https://www.orsayn.com/en/journal/luxe-du-silence
+- Category : IDENTITY
+- Date : 2026-01-20
