@@ -44,7 +44,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { slug: 'marque-transfrontaliere', date: '2025-11-12' },
         { slug: 'guerre-des-talents', date: '2025-12-08' },
         { slug: 'influence-deal-flow', date: '2026-01-05' },
-        { slug: 'luxe-du-silence', date: '2026-01-20' }
+        { slug: 'luxe-du-silence', date: '2026-01-20' },
+        { slug: 'plateforme-digitale-top-1-pourcent', date: '2026-02-25' }
     ];
 
     articles.forEach(article => {

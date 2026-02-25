@@ -72,6 +72,12 @@ Les articles suivants constituent notre corpus de leadership d'opinion. Ils sont
 - Date : 2026-01-20
 - Résumé : Pour les pratiques confidentielles (arbitrage, private Client), le marketing de masse est inadapté. La réponse : leadership de pensée et autorité sémantique.
 
+### [FR] Flight to the top : la plateforme digitale des cabinets qui dominent le M&A en 2026.
+- URL : https://www.orsayn.com/fr/journal/plateforme-digitale-top-1-pourcent
+- Catégorie : STRATÉGIE
+- Date : 2026-02-25
+- Résumé : En 2026, le marché M&A connaît une flight to the top. Le critère de sélection n'est plus seulement technique ou relationnel — c'est la plateforme digitale.
+
 ---
 
 ### [EN] From Passive Brochure to Influence Hub: The Firm as Media.
@@ -103,3 +109,8 @@ Les articles suivants constituent notre corpus de leadership d'opinion. Ils sont
 - URL : https://www.orsayn.com/en/journal/luxe-du-silence
 - Category : IDENTITY
 - Date : 2026-01-20
+
+### [EN] Flight to the Top: The Digital Platform of Firms That Dominate M&A in 2026.
+- URL : https://www.orsayn.com/en/journal/plateforme-digitale-top-1-pourcent
+- Category : STRATEGY
+- Date : 2026-02-25

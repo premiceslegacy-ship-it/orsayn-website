@@ -166,6 +166,29 @@ Ajoute 2 URLs (FR + EN) :
   priority: 0.8,
 },
 ```
+
+---
+
+## ÉTAPE 5 : INDEXATION IA (DISCOVERY)
+
+**Fichier : `public/llms.txt`**
+
+Il est CRITIQUE d'ajouter l'article dans ce fichier pour qu'il soit indexé par les IA (ChatGPT, Perplexity, etc.).
+
+Ajoute l'article en FR et en EN à la fin des sections correspondantes :
+
+```markdown
+### [FR] [TITRE ARTICLE]
+- URL : https://www.orsayn.com/fr/journal/[SLUG]
+- Catégorie : [CATÉGORIE]
+- Date : [DATE AAAA-MM-JJ]
+- Résumé : [RÉSUMÉ COURT 1 PHRASE]
+
+### [EN] [TITLE ARTICLE]
+- URL : https://www.orsayn.com/en/journal/[SLUG]
+- Category : [CATEGORY]
+- Date : [DATE AAAA-MM-JJ]
+```
 ```
 
 ---
@@ -213,6 +236,7 @@ Ajoute 2 URLs (FR + EN) :
 - [ ] Entrée ajoutée dans data layer (selon système existant)
 - [ ] Image automatique via `getCategoryImage()` (PAS de chemin hardcodé)
 - [ ] URLs ajoutées dans `sitemap.ts` (FR + EN)
+- [ ] Entrée ajoutée dans `public/llms.txt` (FR + EN)
 - [ ] Test local : `http://localhost:3000/fr/journal/[slug]`
 - [ ] Test EN : `http://localhost:3000/en/journal/[slug]`
 - [ ] Image correcte affichée selon catégorie :

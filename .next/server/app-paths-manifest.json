@@ -1,3 +1,6 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/[locale]/(main)/journal/[slug]/page": "app/[locale]/(main)/journal/[slug]/page.js",
+  "/[locale]/(main)/journal/page": "app/[locale]/(main)/journal/page.js",
   "/[locale]/(main)/page": "app/[locale]/(main)/page.js"
 }

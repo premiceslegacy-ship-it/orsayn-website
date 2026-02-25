@@ -1,9 +1,9 @@
 {
   "pages": {
-    "/[locale]/(main)/page": [
+    "/[locale]/(main)/journal/[slug]/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/[locale]/(main)/page.js"
+      "static/chunks/app/[locale]/(main)/journal/[slug]/page.js"
     ],
     "/[locale]/(main)/layout": [
       "static/chunks/webpack.js",
@@ -20,6 +20,21 @@
       "static/chunks/main-app.js",
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
+    ],
+    "/[locale]/(main)/journal/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[locale]/(main)/journal/page.js"
+    ],
+    "/[locale]/(main)/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/[locale]/(main)/page.js"
+    ],
+    "/_not-found/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/_not-found/page.js"
     ]
   }
 }

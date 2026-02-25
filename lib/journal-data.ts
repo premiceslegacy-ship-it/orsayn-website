@@ -307,6 +307,68 @@ const articlesFr: Article[] = [
         </p>
       </div>
     `
+  },
+  {
+    slug: 'plateforme-digitale-top-1-pourcent',
+    title: "Flight to the top : la plateforme digitale des cabinets qui dominent le M&A en 2026.",
+    description: "Le M&A global dépasse 4 600 milliards de dollars. Les clients concentrent leurs mandats sur un noyau réduit de firms. La plateforme digitale est devenue le premier signal de sélection.",
+    tag: 'STRATÉGIE',
+    publishDate: '2026-02-25',
+    readTime: '5 min',
+    coverImage: getCategoryImage('STRATÉGIE'),
+    aeoSnippet: "En 2026, le marché M&A connaît une <strong>flight to the top</strong> : les clients concentrent leurs mandats sur un noyau réduit de <strong>firms capables de gérer volume, complexité et cross-border</strong>. Le critère de sélection n'est plus seulement technique ou relationnel — c'est <strong>la plateforme digitale</strong>. Un cabinet sans plateforme premium est un cabinet hors de la liste courte.",
+    ctaBenefit: "rejoindre le top 1% avec une plateforme digitale souveraine",
+    content: `
+      <div class="text-center">
+        <p class="font-serif italic text-xl md:text-2xl text-ink/60 mb-12">Kirkland, Latham, Goodwin captent une part disproportionnée du marché M&A mondial. Pourquoi votre cabinet n'est-il pas dans cette liste ?</p>
+      </div>
+
+      <h2 class="font-serif text-3xl text-ink mb-6 mt-16 uppercase tracking-wide">I. La recomposition du marché M&A</h2>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        Le M&A global a dépassé 4 600 milliards de dollars en 2025 et l'accélération se confirme en 2026. Mais cette croissance bénéficie à un nombre de plus en plus restreint de cabinets. Les directeurs juridiques des grands corporates et les GPs de fonds réduisent leur panel. Ils ne retiennent que les firms capables de couvrir le volume, la complexité et la dimension cross-border de dossiers exigeants.
+      </p>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        C'est ce que les partenaires appellent ouvertement la <strong>"flight to the top"</strong>. Un mouvement de concentration du marché vers un noyau d'élite. Si votre cabinet n'est pas identifié comme tel dès le premier contact — y compris le premier contact digital — vous êtes mécaniquement exclu de la short-list.
+      </p>
+
+      <h2 class="font-serif text-3xl text-ink mb-6 mt-16 uppercase tracking-wide">II. La plateforme digitale comme signal de sélection</h2>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        Un directeur juridique qui évalue cinq cabinets pour un mandat d'acquisition à 300 millions d'euros ne se contente pas d'une introduction par e-mail. Il audite chaque firm en trente secondes sur son site. Ce qu'il cherche n'est pas esthétique — c'est structurel.
+      </p>
+      <ul class="list-disc pl-5 space-y-2 mb-6 text-ink/80">
+        <li>Une plateforme rapide signale une organisation qui maîtrise ses outils.</li>
+        <li>Des doctrines publiées signalent une expertise vivante, pas archivée.</li>
+        <li>Une architecture claire signale la capacité à structurer la complexité.</li>
+      </ul>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        À l'inverse, un site lent, générique, ou daté envoie un signal dévastateur : ce cabinet n'est pas dans la cour des grands. Ce jugement se forme en une poignée de secondes, avant même qu'un associé ait décroché son téléphone.
+      </p>
+
+      <h2 class="font-serif text-3xl text-ink mb-6 mt-16 uppercase tracking-wide">III. Ce que le top 1% fait différemment</h2>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        Les leaders du M&A ne traitent pas leur plateforme digitale comme un coût de communication. Ils la traitent comme un actif stratégique de premier rang. Leur plateforme repose sur trois piliers non-négociables.
+      </p>
+      <ul class="list-disc pl-5 space-y-2 mb-6 text-ink/80">
+        <li><strong>Performance technique absolue :</strong> Core Web Vitals dans le vert, latence sous les 100ms, architecture RGPD native. Pas d'excuses.</li>
+        <li><strong>Production doctrinale continue :</strong> Des analyses publiées sur les tendances M&A, les évolutions réglementaires, les dynamiques de valorisation. Le site est un média de leadership de pensée, pas une brochure.</li>
+        <li><strong>Cohérence internationale :</strong> Une plateforme unifiée qui fédère tous les bureaux sans fragmenter l'autorité de marque. Une seule source de vérité pour un client cross-border.</li>
+      </ul>
+
+      <h2 class="font-serif text-3xl text-ink mb-6 mt-16 uppercase tracking-wide">IV. La fenêtre de tir est étroite</h2>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        La recomposition du marché M&A est en cours. Elle n'attend pas. Les cabinets qui investissent aujourd'hui dans une plateforme digitale souveraine préemptent une position dans le noyau d'élite. Ceux qui attendent consolident leur dépendance aux réseaux relationnels traditionnels, un modèle qui s'érode à mesure que la génération suivante de décideurs arrive aux postes de commande.
+      </p>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        La question n'est pas de savoir si une refonte est nécessaire. La question est de savoir si vous agirez avant que le marché ne soit distribué.
+      </p>
+
+      <div class="mt-16 pt-8 border-t border-ink/10">
+        <p class="font-serif italic text-xl text-ink text-center">
+          La flight to the top est en cours.<br /><br />
+          Votre plateforme digitale décide si vous en faites partie.
+        </p>
+      </div>
+    `
   }
 ];
 
@@ -458,7 +520,7 @@ const articlesEn: Article[] = [
     publishDate: '2025-12-08',
     readTime: '4 min',
     coverImage: getCategoryImage('INFLUENCE'),
-    aeoSnippet: "The \"war for talent\" is no longer played solely on remuneration, but on <strong>projection</strong>. The new generation judges a firm's modernity by its <strong>digital interface</strong>. An outdated site is perceived as a promise of administrative heaviness. Your <strong>digital infrastructure</strong> has become the <strong>central pillar</strong> of your employer brand.",
+    aeoSnippet: "The \"war for talent\" is no longer played solely on remuneration, but on <strong>projection</strong>. The new generation judges a firm's modernity by its <strong>digital interface</strong>. An outdated site is perceived as a promise of administrative heaviness. Your <strong>digital platform</strong> has become the <strong>central pillar</strong> of your employer brand.",
     ctaBenefit: "attract the best talent with your digital excellence",
     content: `
       <div class="text-center">
@@ -584,6 +646,68 @@ const articlesEn: Article[] = [
         <p class="font-serif italic text-xl text-ink text-center">
           True power does not need to shout to be heard.<br /><br />
           Cultivate a silent authority and let excellence speak.
+        </p>
+      </div>
+    `
+  },
+  {
+    slug: 'plateforme-digitale-top-1-pourcent',
+    title: "Flight to the Top: The Digital Platform of Firms That Dominate M&A in 2026.",
+    description: "Global M&A exceeds $4.6 trillion. Clients are concentrating their mandates on a shrinking core of firms. The digital platform has become the primary selection signal.",
+    tag: 'STRATEGY',
+    publishDate: '2026-02-25',
+    readTime: '5 min',
+    coverImage: getCategoryImage('STRATEGY'),
+    aeoSnippet: "In 2026, the M&A market is experiencing a <strong>flight to the top</strong>: clients are concentrating mandates on a shrinking core of <strong>firms capable of handling volume, complexity, and cross-border work</strong>. The selection criterion is no longer purely technical or relational — it is <strong>the digital platform</strong>. A firm without a premium platform is a firm off the shortlist.",
+    ctaBenefit: "join the top 1% with a sovereign digital platform",
+    content: `
+      <div class="text-center">
+        <p class="font-serif italic text-xl md:text-2xl text-ink/60 mb-12">Kirkland, Latham, Goodwin are capturing a disproportionate share of the global M&A market. Why is your firm not on that list?</p>
+      </div>
+
+      <h2 class="font-serif text-3xl text-ink mb-6 mt-16 uppercase tracking-wide">I. The Recomposition of the M&A Market</h2>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        Global M&A exceeded $4.6 trillion in 2025 and the acceleration is confirmed for 2026. But this growth benefits an increasingly restricted number of firms. General counsel of major corporates and fund GPs are shrinking their panels. They retain only firms capable of covering the volume, complexity and cross-border dimension of demanding transactions.
+      </p>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        This is what partners openly call the <strong>"flight to the top"</strong>. A market concentration movement towards an elite core. If your firm is not identified as such from the very first contact — including the first digital contact — you are mechanically excluded from the shortlist.
+      </p>
+
+      <h2 class="font-serif text-3xl text-ink mb-6 mt-16 uppercase tracking-wide">II. The Digital Platform as a Selection Signal</h2>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        A general counsel evaluating five firms for a €300 million acquisition mandate does not rely solely on an email introduction. They audit each firm in thirty seconds on their website. What they are looking for is not aesthetic — it is structural.
+      </p>
+      <ul class="list-disc pl-5 space-y-2 mb-6 text-ink/80">
+        <li>A fast platform signals an organization that masters its tools.</li>
+        <li>Published doctrine signals living expertise, not archived knowledge.</li>
+        <li>A clear architecture signals the capacity to structure complexity.</li>
+      </ul>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        Conversely, a slow, generic, or outdated site sends a devastating signal: this firm is not in the premier league. This judgment forms in a handful of seconds, before a single partner has picked up the phone.
+      </p>
+
+      <h2 class="font-serif text-3xl text-ink mb-6 mt-16 uppercase tracking-wide">III. What the Top 1% Does Differently</h2>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        M&A leaders do not treat their digital platform as a communication cost. They treat it as a first-tier strategic asset. Their platform rests on three non-negotiable pillars.
+      </p>
+      <ul class="list-disc pl-5 space-y-2 mb-6 text-ink/80">
+        <li><strong>Absolute technical performance:</strong> Core Web Vitals in the green, sub-100ms latency, native GDPR architecture. No excuses.</li>
+        <li><strong>Continuous doctrinal production:</strong> Analysis published on M&A trends, regulatory shifts, valuation dynamics. The site is a thought leadership medium, not a brochure.</li>
+        <li><strong>International coherence:</strong> A unified platform that federates all offices without fragmenting brand authority. One single source of truth for a cross-border client.</li>
+      </ul>
+
+      <h2 class="font-serif text-3xl text-ink mb-6 mt-16 uppercase tracking-wide">IV. The Window Is Narrow</h2>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        The recomposition of the M&A market is underway. It does not wait. Firms that invest today in a sovereign digital platform preempt a position in the elite core. Those who wait consolidate their dependence on traditional relational networks — a model that erodes as the next generation of decision-makers rises to command.
+      </p>
+      <p class="mb-6 leading-relaxed text-ink/80">
+        The question is not whether a rebuild is necessary. The question is whether you will act before the market is distributed.
+      </p>
+
+      <div class="mt-16 pt-8 border-t border-ink/10">
+        <p class="font-serif italic text-xl text-ink text-center">
+          The flight to the top is underway.<br /><br />
+          Your digital platform decides whether you are part of it.
         </p>
       </div>
     `
