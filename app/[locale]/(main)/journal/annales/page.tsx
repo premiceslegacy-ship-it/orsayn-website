@@ -34,7 +34,8 @@ export default function AnnalesPage() {
         return key;
     };
 
-    const filteredArticles = useMemo(() => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const _filteredArticles = useMemo(() => {
         if (activeFilter === 'ALL') {
             return articles;
         }

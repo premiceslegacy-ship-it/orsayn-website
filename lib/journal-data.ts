@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+// journal-data.ts
 
 export interface Article {
   slug: string;

@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useLocale } from 'next-intl';
-import { getArticles, Article } from '@/lib/journal-data';
+import { getArticles } from '@/lib/journal-data';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const FILTERS = ['TOUS', 'STRATÉGIE', 'INFLUENCE', 'IDENTITÉ'] as const;
@@ -84,7 +84,7 @@ export default function JournalIndex() {
 
                                     {/* CTA */}
                                     <div className="flex items-center gap-2 text-[9px] uppercase tracking-[0.2em] text-ink font-medium group-hover:gap-4 transition-all duration-300">
-                                        Lire l'article
+                                        Lire l&apos;article
                                         <span className="block w-4 h-px bg-ink group-hover:bg-brass transition-colors"></span>
                                     </div>
                                 </Link>

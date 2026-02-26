@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
-import { motion, Variants, AnimatePresence } from 'framer-motion';
+import React, { useState, useRef } from 'react';
+import { motion, Variants } from 'framer-motion';
 import { ServiceProps } from '../types';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';

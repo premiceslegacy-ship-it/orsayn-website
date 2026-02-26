@@ -2,11 +2,11 @@
 
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ArrowUpRight, ArrowLeft } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslations, useLocale } from 'next-intl';
 import { articles as journalArticles, getArticles } from '@/lib/journal-data';
-import JournalBackButton from '@/components/JournalBackButton';
+
 
 import ArticleReader from '@/components/ArticleReader';
 
@@ -23,7 +23,8 @@ const Perspectives: React.FC = () => {
     return [...currentArticles]
       .sort((a, b) => new Date(b.publishDate).getTime() - new Date(a.publishDate).getTime())
       .slice(0, 3);
-  }, [currentArticles, locale]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentArticles]);
 
   const [selectedArticle, setSelectedArticle] = useState<typeof journalArticles[0] | null>(null);
 

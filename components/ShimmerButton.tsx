@@ -1,6 +1,6 @@
 'use client';
 
-import React, { CSSProperties } from 'react';
+import React from 'react';
 
 function cn(...classes: (string | undefined | null | false)[]) {
   return classes.filter(Boolean).join(' ');
@@ -20,6 +20,7 @@ const ShimmerButton = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, Sh
   (
     {
       shimmerColor = "#D4B35D",
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       shimmerDuration = "3.5s",
       borderRadius = "0px",
       background = "#1A1A1A",
