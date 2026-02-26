@@ -34,13 +34,13 @@ const Footer: React.FC = () => {
             >
 
                 {/* CONTAINER WITH BORDERS */}
-                <div className="border-l border-r border-ink/10 border-t border-ink/10 bg-paper">
+                <div className="border-l border-r border-ink/30 border-t border-ink/30 bg-paper">
 
                     {/* TOP SECTION: GRID LAYOUT - 1 col Mobile, 2 cols Tablet, 4 cols XL */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-ink/10">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 divide-y md:divide-y-0 md:divide-x divide-ink/30">
 
                         {/* 1. BRAND IDENTITY */}
-                        <div className="p-8 md:p-10 lg:p-12 xl:p-12 flex flex-col justify-start items-center md:items-center xl:items-start text-center md:text-center xl:text-left gap-6 min-h-[200px] border-b md:border-b-0 border-ink/10 xl:border-b-0">
+                        <div className="p-8 md:p-10 lg:p-12 xl:p-12 flex flex-col justify-start items-center md:items-center xl:items-start text-center md:text-center xl:text-left gap-6 min-h-[200px] border-b md:border-b-0 border-ink/30 xl:border-b-0">
                             <div className="h-8 flex items-center mb-2">
                                 <img
                                     src="/logo/SIMPLIFIED LOGO FINAL.svg"
@@ -49,7 +49,7 @@ const Footer: React.FC = () => {
                                 />
                             </div>
                             <div>
-                                <p className="text-[9px] uppercase tracking-[0.2em] text-ink/40 leading-relaxed">
+                                <p className="text-[9px] uppercase tracking-[0.2em] text-ink/50 leading-relaxed">
                                     {t('tagline1')}<br />{t('tagline2')}
                                 </p>
                             </div>

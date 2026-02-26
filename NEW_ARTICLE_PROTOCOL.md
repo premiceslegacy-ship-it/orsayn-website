@@ -189,6 +189,35 @@ Ajoute l'article en FR et en EN à la fin des sections correspondantes :
 - Category : [CATEGORY]
 - Date : [DATE AAAA-MM-JJ]
 ```
+
+---
+
+## ÉTAPE 6 : PLAN DU SITE (VISITEURS)
+
+**Fichier : `app/[locale]/(legal)/plan-du-site/page.tsx`**
+
+La liste des articles sur cette page est **hardcodée** pour un contrôle total du design.
+
+1. **Ajoute le lien dans le fichier :**
+   Localise la liste des articles (sous `t('nav.review')`) et ajoute le nouveau `<li>` :
+
+```tsx
+<li className="pl-4">
+    <Link href="/journal/[SLUG]" className="hover:opacity-60 transition-opacity text-gray-500">
+        {t('articles.[KEY]')}
+    </Link>
+</li>
+```
+
+2. **Ajoute les traductions :**
+   Dans `messages/fr.json` et `messages/en.json`, va dans la section `legal.sitemap.articles` et ajoute la clé correspondante :
+
+```json
+"articles": {
+    ...
+    "[KEY]": "— [TITRE_AFFICHE]"
+}
+```
 ```
 
 ---
@@ -245,6 +274,8 @@ Ajoute l'article en FR et en EN à la fin des sections correspondantes :
   - INFLUENCE → `influence-img.webp`
 - [ ] Article apparaît dans grille "Perspectives" (home)
 - [ ] Article apparaît dans page `/journal`
+- [ ] Lien ajouté dans `app/[locale]/(legal)/plan-du-site/page.tsx` (ÉTAPE 6)
+- [ ] Clé de traduction ajoutée dans `messages/fr.json` et `messages/en.json` (section `legal.sitemap.articles`)
 - [ ] Rotation automatique : ancien article passe en annales si besoin
 
 ---

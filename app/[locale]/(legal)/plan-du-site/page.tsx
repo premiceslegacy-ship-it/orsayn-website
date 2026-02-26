@@ -24,6 +24,7 @@ export default function SitemapPage() {
                         <li className="pl-4"><Link href="/journal/guerre-des-talents" className="hover:opacity-60 transition-opacity text-gray-500">{t('articles.talent')}</Link></li>
                         <li className="pl-4"><Link href="/journal/influence-deal-flow" className="hover:opacity-60 transition-opacity text-gray-500">{t('articles.roi')}</Link></li>
                         <li className="pl-4"><Link href="/journal/luxe-du-silence" className="hover:opacity-60 transition-opacity text-gray-500">{t('articles.rarity')}</Link></li>
+                        <li className="pl-4"><Link href="/journal/plateforme-digitale-top-1-pourcent" className="hover:opacity-60 transition-opacity text-gray-500">{t('articles.platform')}</Link></li>
                         <li><Link href="/#contact" className="hover:opacity-60 transition-opacity">{t('nav.contact')}</Link></li>
                     </ul>
                 </div>

@@ -43,7 +43,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onClick, in
             style={{ willChange: "height, opacity" }}
           >
             <div className="pl-6 md:pl-14 pb-8 md:pb-10 pr-4 md:pr-12 max-w-3xl">
-              <p className="text-sm md:text-base font-light text-ink/70 leading-relaxed">
+              <p className="text-sm md:text-base font-light text-ink/80 leading-relaxed">
                 {answer}
               </p>
             </div>
@@ -99,13 +99,13 @@ const FAQ: React.FC = () => {
           {/* Header Column */}
           <div className="xl:col-span-4 text-center xl:text-left">
             <div className="sticky top-32">
-              <span className="inline-block text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-ink/40 mb-6 md:mb-8">
+              <span className="inline-block text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-ink/60 mb-6 md:mb-8">
                 {t('sectionLabel')}
               </span>
               <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl text-ink leading-[1] mb-6 md:mb-8">
-                {t('sectionTitleLine1')} <br /><span className="italic text-ink/40">{t('sectionTitleLine2')}</span>
+                {t('sectionTitleLine1')} <br /><span className="italic text-ink/60">{t('sectionTitleLine2')}</span>
               </h2>
-              <p className="text-sm font-light text-ink/60 leading-relaxed max-w-xs mx-auto xl:mx-0 mb-8">
+              <p className="text-sm font-light text-ink/80 leading-relaxed max-w-xs mx-auto xl:mx-0 mb-8">
                 {t('sectionDescription')}
               </p>
               <a href="#contact" className="inline-flex items-center gap-2 text-[10px] uppercase tracking-widest text-ink hover:text-brass transition-colors duration-300 pb-1 border-b border-ink/10 hover:border-brass">

@@ -82,29 +82,29 @@ export default function Hero() {
       <div className="max-w-[1920px] mx-auto px-6 md:px-12 lg:px-16 xl:px-24 w-full flex flex-col items-center">
 
         {/* 1. Centered Text Content */}
-        <div className="text-center max-w-full md:max-w-3xl lg:max-w-5xl mx-auto z-20 mb-12 md:mb-24 lg:mb-32 px-2 md:px-0 w-full">
+        <div className="text-center max-w-full md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto z-20 mb-12 md:mb-24 lg:mb-32 px-2 md:px-0 w-full">
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="flex flex-col items-center justify-center w-full"
           >
-            <motion.div variants={itemVariants} className="flex items-center gap-3 md:gap-4 mb-6 md:mb-10 lg:mb-12 opacity-60">
-              <div className="w-6 md:w-8 lg:w-12 h-px bg-ink"></div>
-              <span className="text-[9px] md:text-[10px] tracking-[0.2em] md:tracking-[0.25em] lg:tracking-[0.3em] uppercase whitespace-nowrap">
+            <motion.div variants={itemVariants} className="flex items-center justify-center gap-2 sm:gap-3 md:gap-4 mb-6 md:mb-10 lg:mb-12 opacity-60 px-2 w-full">
+              <div className="w-2 sm:w-6 md:w-8 lg:w-12 h-px bg-ink shrink-0"></div>
+              <span className="text-[7px] min-[375px]:text-[8px] sm:text-[9px] md:text-[10px] tracking-[0.15em] sm:tracking-[0.2em] md:tracking-[0.25em] lg:tracking-[0.3em] uppercase whitespace-nowrap text-center shrink">
                 {t('tagline')}
               </span>
-              <div className="w-6 md:w-8 lg:w-12 h-px bg-ink"></div>
+              <div className="w-2 sm:w-6 md:w-8 lg:w-12 h-px bg-ink shrink-0"></div>
             </motion.div>
 
             {/* Typography refined for mobile/tablet symmetry */}
             {/* Typography refined for mobile/tablet symmetry - LCP OPTIMIZED: Static Render */}
-            <h1 className="font-serif font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] md:leading-[1.1] text-ink mb-6 md:mb-10 lg:mb-12 tracking-tight">
-              {t('titleLine1')} <br />
-              {t('titleLine2')} <span className="italic font-bold">{t('titleHighlight')}</span>
+            <h1 className="font-serif font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.5rem] leading-[1.05] md:leading-[1.1] text-ink mb-6 md:mb-10 lg:mb-12 tracking-tight">
+              {t('titleLine1')} <br className="md:hidden" />
+              <span className="md:inline"> {t('titleLine2')} <span className="italic font-bold">{t('titleHighlight')}</span></span>
             </h1>
 
-            <p className="text-sm sm:text-base md:text-lg text-ink/80 leading-relaxed font-light max-w-xs sm:max-w-md md:max-w-xl lg:max-w-2xl mx-auto mb-10 md:mb-14 lg:mb-16">
+            <p className="text-[10px] min-[375px]:text-[10.5px] min-[400px]:text-[11px] sm:text-base md:text-lg text-ink/80 leading-relaxed font-light w-full max-w-[380px] min-[400px]:max-w-[420px] sm:max-w-md md:max-w-xl lg:max-w-2xl mx-auto mb-10 md:mb-14 lg:mb-16 whitespace-pre-line px-2 sm:px-0 tracking-tight sm:tracking-normal">
               {t('description')}
             </p>
 
@@ -135,14 +135,14 @@ export default function Hero() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 1 }}
-            className="font-mono text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.3em] text-ink/20 mb-12 md:mb-16 flex items-center gap-3"
+            className="font-mono text-[7px] min-[375px]:text-[7.5px] sm:text-[9px] md:text-[10px] uppercase tracking-normal min-[375px]:tracking-[0.05em] sm:tracking-[0.2em] md:tracking-[0.3em] text-ink/40 mb-12 md:mb-16 flex items-center justify-center gap-1.5 sm:gap-3 whitespace-nowrap w-full px-2"
           >
-            <span className="w-1 h-1 rounded-full bg-ink/20"></span>
+            <span className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-ink/40 shrink-0"></span>
             {t('performanceLabel')}
-            <span className="w-1 h-1 rounded-full bg-ink/20"></span>
+            <span className="w-0.5 h-0.5 sm:w-1 sm:h-1 rounded-full bg-ink/40 shrink-0"></span>
           </motion.div>
 
-          <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.25em] text-ink/40 mb-6 md:mb-8">
+          <span className="text-[9px] md:text-[10px] uppercase tracking-[0.2em] md:tracking-[0.25em] text-ink/60 mb-6 md:mb-8">
             {t('expertiseLabel')}
           </span>
 
