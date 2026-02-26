@@ -14,12 +14,12 @@
     },
     "hero": {
         "tagline": "PLATEFORME DIGITALE POUR CABINETS D'AFFAIRES",
-        "titleLine1": "Faites de votre nom",
-        "titleLine2": "une",
-        "titleHighlight": "Institution.",
-        "description": "Ne laissez plus votre image trahir la qualité de vos dossiers. Exigez désormais la plateforme souveraine qui hisse votre digital à la hauteur de votre standing.",
+        "titleLine1": "Sécurisez la confiance",
+        "titleLine2": "avant la première",
+        "titleHighlight": "poignée de main.",
+        "description": "Vos futurs clients et partenaires évaluent votre excellence en ligne.\nOrsayn déploie des plateformes digitales sur-mesure, conçues pour refléter fidèlement l'autorité de votre cabinet.",
         "performanceLabel": "Lighthouse 98/100 - Latence < 100ms - Architecture RGPD Native",
-        "cta": "REVENDIQUER VOTRE PLACE",
+        "cta": "STRUCTURER VOTRE AUTORITÉ",
         "expertiseLabel": "EXPERTISE SECTORIELLE",
         "expertise": {
             "ma": "M&A",
@@ -214,7 +214,9 @@
             "contextPlaceholder": "Définissez votre objectif prioritaire.",
             "agreement": "En déposant ce dossier, je confirme représenter l'entité citée. Accord NDA implicite.",
             "submit": "DÉPOSER LA CANDIDATURE",
-            "submitting": "ENVOI EN COURS..."
+            "submitting": "ENVOI EN COURS...",
+            "next": "Suivant",
+            "prev": "Précédent"
         },
         "success": {
             "title": "Transmission confirmée.",
@@ -337,7 +339,8 @@
                 "sovereign": "— La stratégie de l'unité souveraine",
                 "talent": "— Le levier d'attractivité",
                 "roi": "— La mécanique du ROI",
-                "rarity": "— L'art de la rareté"
+                "rarity": "— L'art de la rareté",
+                "platform": "— Voler vers le top 1% : la plateforme digitale"
             }
         }
     },

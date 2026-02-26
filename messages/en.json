@@ -14,12 +14,12 @@
     },
     "hero": {
         "tagline": "DIGITAL PLATFORM FOR BUSINESS LAW FIRMS",
-        "titleLine1": "Make your name",
-        "titleLine2": "an",
-        "titleHighlight": "Institution.",
-        "description": "Don't let your image betray the quality of your cases anymore. Now demand the sovereign platform that elevates your digital presence to match your standing.",
+        "titleLine1": "Secure trust before",
+        "titleLine2": "the first",
+        "titleHighlight": "handshake.",
+        "description": "Your future clients and partners evaluate your excellence online.\nOrsayn deploys bespoke digital platforms designed to faithfully reflect your firm's authority.",
         "performanceLabel": "Lighthouse 98/100 - Latency < 100ms - GDPR Native Architecture",
-        "cta": "ASSERT YOUR STANDING",
+        "cta": "STRUCTURE YOUR AUTHORITY",
         "expertiseLabel": "SECTOR EXPERTISE",
         "expertise": {
             "ma": "M&A",
@@ -199,22 +199,24 @@
         "formConfidential": "Confidential",
         "form": {
             "identity": "Identity",
-            "identityPlaceholder": "First & Last Name",
+            "identityPlaceholder": "Full Name",
             "structure": "Structure",
             "structurePlaceholder": "Firm Name",
-            "contact": "Point of Contact",
-            "contactPlaceholder": "Professional e-mail",
+            "contact": "Contact",
+            "contactPlaceholder": "Primary Email",
             "ambition": "Ambition",
-            "ambitionPlaceholder": "Select an option",
-            "ambitionOption1": "Embody my rank (Foundation)",
-            "ambitionOption2": "Dominate my niche (Authority)",
-            "ambitionOption3": "Occupy space (Resonance)",
-            "ambitionOption4": "Other strategic request",
+            "ambitionPlaceholder": "Select an Ambition",
+            "ambitionOption1": "Foundation - Initial digital structure",
+            "ambitionOption2": "Authority - Premium image redesign",
+            "ambitionOption3": "Resonance - Acquisition & Visibility",
+            "ambitionOption4": "Other",
             "context": "Context",
-            "contextPlaceholder": "Define your priority objective.",
-            "agreement": "By submitting this application, I confirm representing the cited entity. Implicit NDA agreement.",
-            "submit": "SUBMIT APPLICATION",
-            "submitting": "SENDING..."
+            "contextPlaceholder": "Briefly describe your project or objectives...",
+            "agreement": "I agree that the information entered will be used strictly for the evaluation of my dossier by Orsayn.",
+            "submit": "Transmit Dossier",
+            "submitting": "Transmitting...",
+            "next": "Next",
+            "prev": "Previous"
         },
         "success": {
             "title": "Transmission confirmed.",
@@ -337,7 +339,8 @@
                 "sovereign": "— The strategy of sovereign unity",
                 "talent": "— The attractiveness lever",
                 "roi": "— The mechanics of ROI",
-                "rarity": "— The art of rarity"
+                "rarity": "— The art of rarity",
+                "platform": "— Flight to the top 1%: the digital platform"
             }
         }
     },
