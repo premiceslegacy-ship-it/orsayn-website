@@ -1,9 +1,37 @@
-'use client';
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
-import { useTranslations } from 'next-intl';
+export async function generateMetadata({
+    params: { locale }
+}: {
+    params: { locale: string }
+}): Promise<Metadata> {
+    if (locale === 'en') {
+        return {
+            title: 'Terms of Service | Orsayn',
+            robots: { index: false, follow: false },
+            alternates: { canonical: 'https://www.orsayn.com/fr/cgv' }
+        };
+    }
+    return {
+        title: 'Conditions Générales de Vente | Orsayn',
+        description: 'Conditions générales de vente et de prestation de services de la plateforme Orsayn.',
+        alternates: {
+            canonical: 'https://www.orsayn.com/fr/cgv',
+            languages: {
+                'fr': 'https://www.orsayn.com/fr/cgv',
+                'x-default': 'https://www.orsayn.com/fr/cgv',
+            }
+        }
+    };
+}
 
-export default function CGVPage() {
-    const t = useTranslations('legal.cgv');
+export default async function CGVPage({
+    params: { locale }
+}: {
+    params: { locale: string }
+}) {
+    const t = await getTranslations({ locale, namespace: 'legal.cgv' });
 
     return (
         <main className="pt-32 pb-20 px-6 max-w-4xl mx-auto text-justify">

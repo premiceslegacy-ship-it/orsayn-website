@@ -1,9 +1,37 @@
-'use client';
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
-import { useTranslations } from 'next-intl';
+export async function generateMetadata({
+    params: { locale }
+}: {
+    params: { locale: string }
+}): Promise<Metadata> {
+    if (locale === 'en') {
+        return {
+            title: 'Privacy Policy | Orsayn',
+            robots: { index: false, follow: false },
+            alternates: { canonical: 'https://www.orsayn.com/fr/confidentialite' }
+        };
+    }
+    return {
+        title: 'Politique de Confidentialité | Orsayn',
+        description: 'Politique de confidentialité et traitement des données personnelles de la plateforme Orsayn.',
+        alternates: {
+            canonical: 'https://www.orsayn.com/fr/confidentialite',
+            languages: {
+                'fr': 'https://www.orsayn.com/fr/confidentialite',
+                'x-default': 'https://www.orsayn.com/fr/confidentialite',
+            }
+        }
+    };
+}
 
-export default function PrivacyPage() {
-    const t = useTranslations('legal.privacy');
+export default async function PrivacyPage({
+    params: { locale }
+}: {
+    params: { locale: string }
+}) {
+    const t = await getTranslations({ locale, namespace: 'legal.privacy' });
 
     return (
         <main className="pt-32 pb-20 px-6 max-w-3xl mx-auto text-justify">

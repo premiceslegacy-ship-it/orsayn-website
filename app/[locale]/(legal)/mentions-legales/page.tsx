@@ -1,9 +1,37 @@
-'use client';
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
 
-import { useTranslations } from 'next-intl';
+export async function generateMetadata({
+    params: { locale }
+}: {
+    params: { locale: string }
+}): Promise<Metadata> {
+    if (locale === 'en') {
+        return {
+            title: 'Legal Notice | Orsayn',
+            robots: { index: false, follow: false },
+            alternates: { canonical: 'https://www.orsayn.com/fr/mentions-legales' }
+        };
+    }
+    return {
+        title: 'Mentions Légales | Orsayn',
+        description: 'Mentions légales de la plateforme Orsayn — éditeur, hébergeur et propriété intellectuelle.',
+        alternates: {
+            canonical: 'https://www.orsayn.com/fr/mentions-legales',
+            languages: {
+                'fr': 'https://www.orsayn.com/fr/mentions-legales',
+                'x-default': 'https://www.orsayn.com/fr/mentions-legales',
+            }
+        }
+    };
+}
 
-export default function MentionsPage() {
-    const t = useTranslations('legal.mentions');
+export default async function MentionsPage({
+    params: { locale }
+}: {
+    params: { locale: string }
+}) {
+    const t = await getTranslations({ locale, namespace: 'legal.mentions' });
 
     return (
         <main className="pt-32 pb-20 px-6 max-w-3xl mx-auto text-center">

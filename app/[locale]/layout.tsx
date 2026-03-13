@@ -52,14 +52,8 @@ export async function generateMetadata({
         authors: [{ name: 'Orsayn' }],
         creator: 'Orsayn',
         publisher: 'Orsayn',
-        alternates: {
-            canonical: `https://www.orsayn.com/${locale}`,
-            languages: {
-                'fr': 'https://www.orsayn.com/fr',
-                'en': 'https://www.orsayn.com/en',
-                'x-default': 'https://www.orsayn.com/en'
-            }
-        },
+        // No alternates/languages here — each page defines its own hreflang
+        // to avoid conflicts between layout-level and page-level hreflang tags
         icons: {
             icon: '/logo/SECONDARY LOGO ANTH.svg',
             apple: '/logo/SECONDARY LOGO ANTH.svg',

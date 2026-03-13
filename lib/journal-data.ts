@@ -316,7 +316,7 @@ const articlesFr: Article[] = [
     publishDate: '2026-02-25',
     readTime: '5 min',
     coverImage: getCategoryImage('STRATÉGIE'),
-    aeoSnippet: "En 2026, le marché M&A connaît une <strong>flight to the top</strong> : les clients concentrent leurs mandats sur un noyau réduit de <strong>firms capables de gérer volume, complexité et cross-border</strong>. Le critère de sélection n'est plus seulement technique ou relationnel — c'est <strong>la plateforme digitale</strong>. Un cabinet sans plateforme premium est un cabinet hors de la liste courte.",
+    aeoSnippet: "En 2026, le marché M&A connaît une <strong>flight to the top</strong> : les clients concentrent leurs mandats sur un noyau réduit de <strong>firms capables de gérer volume, complexité et cross-border</strong>. Le critère de sélection n'est plus seulement technique ou relationnel : c'est <strong>la plateforme digitale</strong>. Un cabinet sans plateforme premium est un cabinet hors de la liste courte.",
     ctaBenefit: "rejoindre le top 1% avec une plateforme digitale souveraine",
     content: `
       <div class="text-center">
@@ -328,12 +328,12 @@ const articlesFr: Article[] = [
         Le M&A global a dépassé 4 600 milliards de dollars en 2025 et l'accélération se confirme en 2026. Mais cette croissance bénéficie à un nombre de plus en plus restreint de cabinets. Les directeurs juridiques des grands corporates et les GPs de fonds réduisent leur panel. Ils ne retiennent que les firms capables de couvrir le volume, la complexité et la dimension cross-border de dossiers exigeants.
       </p>
       <p class="mb-6 leading-relaxed text-ink/80">
-        C'est ce que les partenaires appellent ouvertement la <strong>"flight to the top"</strong>. Un mouvement de concentration du marché vers un noyau d'élite. Si votre cabinet n'est pas identifié comme tel dès le premier contact — y compris le premier contact digital — vous êtes mécaniquement exclu de la short-list.
+        C'est ce que les partenaires appellent ouvertement la <strong>"flight to the top"</strong>. Un mouvement de concentration du marché vers un noyau d'élite. Si votre cabinet n'est pas identifié comme tel dès le premier contact (y compris le premier contact digital), vous êtes mécaniquement exclu de la short-list.
       </p>
 
       <h2 class="font-serif text-3xl text-ink mb-6 mt-16 uppercase tracking-wide">II. La plateforme digitale comme signal de sélection</h2>
       <p class="mb-6 leading-relaxed text-ink/80">
-        Un directeur juridique qui évalue cinq cabinets pour un mandat d'acquisition à 300 millions d'euros ne se contente pas d'une introduction par e-mail. Il audite chaque firm en trente secondes sur son site. Ce qu'il cherche n'est pas esthétique — c'est structurel.
+        Un directeur juridique qui évalue cinq cabinets pour un mandat d'acquisition à 300 millions d'euros ne se contente pas d'une introduction par e-mail. Il audite chaque firm en trente secondes sur son site. Ce qu'il cherche n'est pas esthétique : c'est structurel.
       </p>
       <ul class="list-disc pl-5 space-y-2 mb-6 text-ink/80">
         <li>Une plateforme rapide signale une organisation qui maîtrise ses outils.</li>
@@ -658,7 +658,7 @@ const articlesEn: Article[] = [
     publishDate: '2026-02-25',
     readTime: '5 min',
     coverImage: getCategoryImage('STRATEGY'),
-    aeoSnippet: "In 2026, the M&A market is experiencing a <strong>flight to the top</strong>: clients are concentrating mandates on a shrinking core of <strong>firms capable of handling volume, complexity, and cross-border work</strong>. The selection criterion is no longer purely technical or relational — it is <strong>the digital platform</strong>. A firm without a premium platform is a firm off the shortlist.",
+    aeoSnippet: "In 2026, the M&A market is experiencing a <strong>flight to the top</strong>: clients are concentrating mandates on a shrinking core of <strong>firms capable of handling volume, complexity, and cross-border work</strong>. The selection criterion is no longer purely technical or relational: it is <strong>the digital platform</strong>. A firm without a premium platform is a firm off the shortlist.",
     ctaBenefit: "join the top 1% with a sovereign digital platform",
     content: `
       <div class="text-center">
@@ -670,12 +670,12 @@ const articlesEn: Article[] = [
         Global M&A exceeded $4.6 trillion in 2025 and the acceleration is confirmed for 2026. But this growth benefits an increasingly restricted number of firms. General counsel of major corporates and fund GPs are shrinking their panels. They retain only firms capable of covering the volume, complexity and cross-border dimension of demanding transactions.
       </p>
       <p class="mb-6 leading-relaxed text-ink/80">
-        This is what partners openly call the <strong>"flight to the top"</strong>. A market concentration movement towards an elite core. If your firm is not identified as such from the very first contact — including the first digital contact — you are mechanically excluded from the shortlist.
+        This is what partners openly call the <strong>"flight to the top"</strong>. A market concentration movement towards an elite core. If your firm is not identified as such from the very first contact (including the first digital contact), you are mechanically excluded from the shortlist.
       </p>
 
       <h2 class="font-serif text-3xl text-ink mb-6 mt-16 uppercase tracking-wide">II. The Digital Platform as a Selection Signal</h2>
       <p class="mb-6 leading-relaxed text-ink/80">
-        A general counsel evaluating five firms for a €300 million acquisition mandate does not rely solely on an email introduction. They audit each firm in thirty seconds on their website. What they are looking for is not aesthetic — it is structural.
+        A general counsel evaluating five firms for a €300 million acquisition mandate does not rely solely on an email introduction. They audit each firm in thirty seconds on their website. What they are looking for is not aesthetic: it is structural.
       </p>
       <ul class="list-disc pl-5 space-y-2 mb-6 text-ink/80">
         <li>A fast platform signals an organization that masters its tools.</li>
@@ -698,7 +698,7 @@ const articlesEn: Article[] = [
 
       <h2 class="font-serif text-3xl text-ink mb-6 mt-16 uppercase tracking-wide">IV. The Window Is Narrow</h2>
       <p class="mb-6 leading-relaxed text-ink/80">
-        The recomposition of the M&A market is underway. It does not wait. Firms that invest today in a sovereign digital platform preempt a position in the elite core. Those who wait consolidate their dependence on traditional relational networks — a model that erodes as the next generation of decision-makers rises to command.
+        The recomposition of the M&A market is underway. It does not wait. Firms that invest today in a sovereign digital platform preempt a position in the elite core. Those who wait consolidate their dependence on traditional relational networks, a model that erodes as the next generation of decision-makers rises to command.
       </p>
       <p class="mb-6 leading-relaxed text-ink/80">
         The question is not whether a rebuild is necessary. The question is whether you will act before the market is distributed.

@@ -22,7 +22,18 @@ export default function middleware(request: NextRequest) {
         return NextResponse.redirect(url, { status: 308 })
     }
 
-    return intlMiddleware(request)
+    const response = intlMiddleware(request)
+
+    // Convert 307 (temporary) → 308 (permanent) for locale redirects
+    // Critical for SEO: tells Google these are permanent canonical URLs
+    if (response.status === 307) {
+        const location = response.headers.get('location')
+        if (location) {
+            return NextResponse.redirect(location, { status: 308 })
+        }
+    }
+
+    return response
 }
 
 export const config = {

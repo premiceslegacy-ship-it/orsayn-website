@@ -130,6 +130,33 @@ export default async function ArticlePage({ params }: Props) {
                     dangerouslySetInnerHTML={{ __html: article.content }}
                 />
 
+                {/* RELATED ARTICLES — Internal linking for SEO */}
+                {(() => {
+                    const related = articles.filter(a => a.slug !== article.slug).slice(0, 3);
+                    if (related.length === 0) return null;
+                    return (
+                        <aside className="mt-16 pt-12 border-t border-ink/10">
+                            <p className="text-[9px] uppercase tracking-[0.25em] text-ink/40 mb-8">
+                                {params.locale === 'fr' ? 'À lire aussi' : 'Related articles'}
+                            </p>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                                {related.map(rel => (
+                                    <Link
+                                        key={rel.slug}
+                                        href={`/${params.locale}/journal/${rel.slug}`}
+                                        className="group border border-ink/5 p-6 hover:border-ink/15 transition-colors duration-300"
+                                    >
+                                        <span className="text-[8px] uppercase tracking-[0.2em] text-ink/30 block mb-3">{rel.tag}</span>
+                                        <h3 className="font-serif text-sm text-ink leading-snug group-hover:text-ink/70 transition-colors">
+                                            {rel.title}
+                                        </h3>
+                                    </Link>
+                                ))}
+                            </div>
+                        </aside>
+                    );
+                })()}
+
                 {/* SUBTLE CTA (REPLACES FOOTER) */}
                 <div className="mt-16 pt-16 border-t border-ink/5 text-center flex flex-col items-center">
 

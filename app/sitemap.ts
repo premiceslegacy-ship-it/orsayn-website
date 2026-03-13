@@ -59,16 +59,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         });
     });
 
-    // 0.3 (Faible): Pages Légales - Both locales
+    // 0.3 (Faible): Pages Légales - FR only (EN versions use French slugs → noindex, excluded from sitemap)
     const legalPages = ['mentions-legales', 'confidentialite', 'cgv', 'plan-du-site'];
     legalPages.forEach(page => {
-        locales.forEach(locale => {
-            routes.push({
-                url: `${baseUrl}/${locale}/${page}`,
-                lastModified: new Date(),
-                changeFrequency: 'yearly',
-                priority: 0.3
-            });
+        routes.push({
+            url: `${baseUrl}/fr/${page}`,
+            lastModified: new Date(),
+            changeFrequency: 'yearly',
+            priority: 0.3
         });
     });
 
