@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-import { getTranslations } from 'next-intl/server';
 import JournalClient from './JournalClient';
 
 export async function generateMetadata({
@@ -7,7 +6,6 @@ export async function generateMetadata({
 }: {
     params: { locale: string }
 }): Promise<Metadata> {
-    const t = await getTranslations({ locale, namespace: 'metadata' });
     const canonicalUrl = `https://www.orsayn.com/${locale}/journal`;
     const altLocale = locale === 'fr' ? 'en' : 'fr';
 

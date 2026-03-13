@@ -90,8 +90,8 @@ export async function POST(req: Request) {
         } else {
             // JSON payload (e.g. from the URL tab)
             const body = await req.json();
-            const entries = body.entries || body.urls?.map((u: string) => ({ url: u })) || [];
-            contacts = entries.map((e: any) => ({
+            const entries: { url?: string }[] = body.entries || body.urls?.map((u: string) => ({ url: u })) || [];
+            contacts = entries.map((e) => ({
                 nom: '',  // will be filled by URL hostname fallback
                 url_site: (e.url || '').replace(/[\"',;\s]+$/, ''),
             }));
@@ -106,6 +106,7 @@ export async function POST(req: Request) {
 
         for (const contact of contacts) {
             try {
+                // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const properties: Record<string, any> = {};
 
                 // 1. Title (Nom du cabinet)
@@ -159,9 +160,10 @@ export async function POST(req: Request) {
 
                 results.push({ nom: name || "Cabinet Inconnu", id: response.id });
 
-            } catch (err: any) {
-                console.error("Notion error:", contact.nom, err.message);
-                errors.push({ nom: contact.nom, error: err.message });
+            } catch (err: unknown) {
+                const msg = err instanceof Error ? err.message : String(err);
+                console.error("Notion error:", contact.nom, msg);
+                errors.push({ nom: contact.nom, error: msg });
             }
         }
 
@@ -172,8 +174,9 @@ export async function POST(req: Request) {
             errors: errors.length > 0 ? errors : undefined
         });
 
-    } catch (error: any) {
+    } catch (error: unknown) {
+        const msg = error instanceof Error ? error.message : "Erreur interne";
         console.error("API Notion CRM Error:", error);
-        return NextResponse.json({ error: error.message || "Erreur interne" }, { status: 500 });
+        return NextResponse.json({ error: msg }, { status: 500 });
     }
 }
