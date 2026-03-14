@@ -1,5 +1,6 @@
-import { NextResponse } from 'next/server';
+import { NextResponse, NextRequest } from 'next/server';
 import { Client } from '@notionhq/client';
+import { isRateLimited, getClientIP, errorResponse, methodNotAllowed, rateLimitedResponse } from '@/lib/api-security';
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 interface CRMContact {
@@ -12,6 +13,8 @@ interface CRMContact {
     profil?: string;
 }
 
+const MAX_CSV_ENTRIES = 100;
+
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 const makeValidUrl = (ustr: string): string | null => {
     try {
@@ -21,10 +24,9 @@ const makeValidUrl = (ustr: string): string | null => {
         new URL(parsed);
         return parsed;
     } catch { return null; }
-};
+}
 
 // ─── CSV Parser ───────────────────────────────────────────────────────────────
-// Reads all relevant CRM columns from the CSV: nom, personne_cle, mail, phone, linkedin, url, profil
 function parseCSVContacts(csv: string): CRMContact[] {
     const lines = csv.trim().split(/\r\n|\n|\r/);
     if (lines.length < 2) return [];
@@ -40,15 +42,14 @@ function parseCSVContacts(csv: string): CRMContact[] {
     };
 
     const contacts: CRMContact[] = [];
-    for (let i = 1; i < lines.length; i++) {
+    // Only parse up to MAX_CSV_ENTRIES
+    for (let i = 1; i < lines.length && contacts.length < MAX_CSV_ENTRIES; i++) {
         if (!lines[i].trim()) continue;
         const row = lines[i].split(/[,;|\t]/);
 
-        // Try to find the cabinet name from various column names
         const nom = colMatch(row, 'nom', 'cabinet', 'entreprise', 'name', 'societe', 'société');
         const url_site = colMatch(row, 'url', 'site', 'lien', 'domai', 'web').replace(/[\"',;\s]+$/, '');
 
-        // A row must have at least a name or URL to be included
         if (!nom && !url_site) continue;
 
         contacts.push({
@@ -67,16 +68,22 @@ function parseCSVContacts(csv: string): CRMContact[] {
 // ─── Notion Client ────────────────────────────────────────────────────────────
 const getNotionClient = () => {
     const token = process.env.NOTION_CRM_TOKEN;
-    if (!token) throw new Error("NOTION_CRM_TOKEN n'est pas configuré dans .env.local");
+    if (!token) throw new Error("Erreur de configuration serveur");
     return new Client({ auth: token });
 };
 
 // ─── POST Handler ─────────────────────────────────────────────────────────────
-export async function POST(req: Request) {
+export async function POST(req: NextRequest) {
     try {
+        // Rate limiting: 5 req/min
+        const ip = getClientIP(req);
+        if (isRateLimited(ip, 'notion-crm', 5, 60_000)) {
+            return rateLimitedResponse();
+        }
+
         const notion = getNotionClient();
         const databaseId = process.env.NOTION_CRM_DATABASE_ID;
-        if (!databaseId) throw new Error("NOTION_CRM_DATABASE_ID n'est pas configuré dans .env.local");
+        if (!databaseId) throw new Error("Erreur de configuration serveur");
 
         const contentType = req.headers.get('content-type') || '';
         let contacts: CRMContact[] = [];
@@ -84,21 +91,26 @@ export async function POST(req: Request) {
         if (contentType.includes('multipart/form-data')) {
             const formData = await req.formData();
             const file = formData.get('file') as File | null;
-            if (!file) return NextResponse.json({ error: "Fichier non trouvé." }, { status: 400 });
+            if (!file) return errorResponse("Fichier non trouvé.", 400);
+
+            // Limit file size to 1MB
+            if (file.size > 1024 * 1024) {
+                return errorResponse("Fichier trop volumineux (max 1 MB)", 400);
+            }
+
             const text = await file.text();
             contacts = parseCSVContacts(text);
         } else {
-            // JSON payload (e.g. from the URL tab)
             const body = await req.json();
             const entries: { url?: string }[] = body.entries || body.urls?.map((u: string) => ({ url: u })) || [];
-            contacts = entries.map((e) => ({
-                nom: '',  // will be filled by URL hostname fallback
+            contacts = entries.slice(0, MAX_CSV_ENTRIES).map((e) => ({
+                nom: '',
                 url_site: (e.url || '').replace(/[\"',;\s]+$/, ''),
             }));
         }
 
         if (contacts.length === 0) {
-            return NextResponse.json({ error: "Aucune entrée valide trouvée. Vérifiez votre fichier CSV (colonnes: nom, url, mail, telephone, linkedin...)." }, { status: 400 });
+            return errorResponse("Aucune entrée valide trouvée. Vérifiez votre fichier CSV ou payloads.", 400);
         }
 
         const results: { nom: string; id: string }[] = [];
@@ -109,7 +121,6 @@ export async function POST(req: Request) {
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 const properties: Record<string, any> = {};
 
-                // 1. Title (Nom du cabinet)
                 let name = contact.nom;
                 if (!name && contact.url_site) {
                     try { name = new URL(contact.url_site.startsWith('http') ? contact.url_site : `https://${contact.url_site}`).hostname.replace('www.', ''); } catch { name = contact.url_site; }
@@ -118,37 +129,30 @@ export async function POST(req: Request) {
                     title: [{ text: { content: name || "Cabinet Inconnu" } }]
                 };
 
-                // 2. Statut = "Cible identifiée"
                 properties["Statut"] = { select: { name: "Cible identifiée" } };
 
-                // 3. Personne clé
                 if (contact.personne_cle) {
-                    properties["Personne clé"] = { rich_text: [{ text: { content: contact.personne_cle } }] };
+                    properties["Personne clé"] = { rich_text: [{ text: { content: contact.personne_cle.slice(0, 500) } }] };
                 }
 
-                // 4. Email
                 if (contact.email) {
                     properties["Mail"] = { email: contact.email };
                 }
 
-                // 5. Téléphone
                 if (contact.telephone) {
-                    properties["Téléphone"] = { phone_number: contact.telephone };
+                    properties["Téléphone"] = { phone_number: contact.telephone.slice(0, 50) };
                 }
 
-                // 6. LinkedIn URL
                 if (contact.linkedin) {
                     const validLi = makeValidUrl(contact.linkedin);
                     if (validLi) properties["URL LinkedIn"] = { url: validLi };
                 }
 
-                // 7. URL site web
                 if (contact.url_site) {
                     const validWeb = makeValidUrl(contact.url_site);
                     if (validWeb) properties["URL site web"] = { url: validWeb };
                 }
 
-                // 8. Profil (notes, description from CSV if provided)
                 if (contact.profil) {
                     properties["Profil"] = { rich_text: [{ text: { content: contact.profil.substring(0, 2000) } }] };
                 }
@@ -161,9 +165,9 @@ export async function POST(req: Request) {
                 results.push({ nom: name || "Cabinet Inconnu", id: response.id });
 
             } catch (err: unknown) {
-                const msg = err instanceof Error ? err.message : String(err);
-                console.error("Notion error:", contact.nom, msg);
-                errors.push({ nom: contact.nom, error: msg });
+                // Never leak internal Notion API errors to the client
+                console.error("Notion error:", contact.nom, (err as Error).message);
+                errors.push({ nom: contact.nom, error: "Erreur d'insertion CRM" });
             }
         }
 
@@ -175,8 +179,13 @@ export async function POST(req: Request) {
         });
 
     } catch (error: unknown) {
-        const msg = error instanceof Error ? error.message : "Erreur interne";
-        console.error("API Notion CRM Error:", error);
-        return NextResponse.json({ error: msg }, { status: 500 });
+        console.error("API Notion CRM Error:", (error as Error).message);
+        return errorResponse("Erreur interne du serveur", 500);
     }
 }
+
+// Block all other HTTP methods
+export async function GET() { return methodNotAllowed(); }
+export async function PUT() { return methodNotAllowed(); }
+export async function DELETE() { return methodNotAllowed(); }
+export async function PATCH() { return methodNotAllowed(); }

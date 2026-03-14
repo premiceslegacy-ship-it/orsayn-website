@@ -2,52 +2,12 @@ import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { Client } from '@notionhq/client';
 import validator from 'validator';
+import { isRateLimited, getClientIP, sanitizeString, errorResponse, methodNotAllowed, rateLimitedResponse } from '@/lib/api-security';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-// ===== PROTECTION 1 : RATE LIMITING =====
-// Map pour stocker les timestamps des dernières requêtes par IP
-const rateLimitMap = new Map<string, number[]>();
-
-const isRateLimited = (ip: string): boolean => {
-    const now = Date.now();
-    const windowMs = 60 * 1000; // 1 minute
-    const maxRequests = 3; // Max 3 requêtes par minute
-
-    const requests = rateLimitMap.get(ip) || [];
-
-    // Filtrer les requêtes dans la fenêtre de temps
-    const recentRequests = requests.filter(time => now - time < windowMs);
-
-    if (recentRequests.length >= maxRequests) {
-        return true; // Rate limited
-    }
-
-    // Ajouter la nouvelle requête
-    recentRequests.push(now);
-    rateLimitMap.set(ip, recentRequests);
-
-    // Nettoyer les vieilles entrées (éviter fuite mémoire)
-    if (rateLimitMap.size > 1000) {
-        const oldestKey = rateLimitMap.keys().next().value;
-        if (oldestKey) rateLimitMap.delete(oldestKey);
-    }
-
-    return false;
-};
-
-// ===== PROTECTION 2 : SANITIZATION =====
-const sanitizeString = (str: string, maxLength: number = 500): string => {
-    if (!str) return '';
-    return str
-        .trim()
-        .slice(0, maxLength)
-        .replace(/[<>]/g, '') // Supprimer < et > (anti-XSS basique)
-        .replace(/\n{3,}/g, '\n\n'); // Limiter les sauts de ligne
-};
-
-// ===== PROTECTION 3 : VALIDATION =====
+// ===== VALIDATION =====
 const validateEmail = (email: string): boolean => {
     return validator.isEmail(email) && email.length <= 100;
 };
@@ -96,7 +56,7 @@ const validateData = (data: Record<string, unknown>): { valid: boolean; error?: 
         return { valid: false, error: 'Vous devez accepter les conditions' };
     }
 
-    // Vérifier honeypot
+    // Honeypot check
     if (data.website) {
         return { valid: false, error: 'Spam détecté' };
     }
@@ -108,22 +68,17 @@ const validateData = (data: Record<string, unknown>): { valid: boolean; error?: 
 // ===== API ROUTE =====
 export async function POST(request: NextRequest) {
     try {
-        // Protection 1: Rate Limiting
-        const ip = request.headers.get('x-forwarded-for')?.split(',')[0] ||
-            request.headers.get('x-real-ip') ||
-            'unknown';
+        // Protection: Rate Limiting (3 req/min)
+        const ip = getClientIP(request);
 
-        if (isRateLimited(ip)) {
-            return NextResponse.json(
-                { error: 'Too many requests. Please wait 1 minute.' },
-                { status: 429 }
-            );
+        if (isRateLimited(ip, 'contact', 3, 60_000)) {
+            return rateLimitedResponse();
         }
 
-        // Parsing du body
+        // Parse body
         const body = await request.json();
 
-        // Protection 3: Validation
+        // Validation
         const validation = validateData(body);
         if (!validation.valid) {
             return NextResponse.json(
@@ -132,7 +87,7 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Protection 2: Sanitization
+        // Sanitization
         const cleanData = {
             name: sanitizeString(body.name, 100),
             company: sanitizeString(body.company, 150),
@@ -141,7 +96,7 @@ export async function POST(request: NextRequest) {
             context: sanitizeString(body.context, 1000)
         };
 
-        // Vérification finale de l'email
+        // Final email validation after sanitization
         if (!validateEmail(cleanData.email)) {
             return NextResponse.json(
                 { error: 'Format d\'email invalide' },
@@ -173,31 +128,22 @@ export async function POST(request: NextRequest) {
 
             <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #D4B35D;">
               <p style="font-size: 12px; color: #666;">Candidature reçue depuis orsayn.com</p>
-              <p style="font-size: 11px; color: #999;">IP: ${ip}</p>
             </div>
           </div>
         `
             });
         } catch (emailError: unknown) {
-            console.error('Erreur Resend:', emailError);
-            // On continue même si l'email échoue (Notion reste prioritaire)
+            console.error('Erreur envoi email:', (emailError as Error).message);
+            // Continue even if email fails (Notion is priority)
         }
 
         // ===== 2. ENREGISTREMENT NOTION =====
         try {
-            console.log('===== DÉBUT NOTION =====');
-            console.log('[DEBUG] NOTION_API_KEY présente:', !!process.env.NOTION_API_KEY);
-            console.log('[DEBUG] NOTION_DATABASE_ID:', process.env.NOTION_DATABASE_ID?.substring(0, 8) + '...');
-            console.log('[DEBUG] cleanData:', JSON.stringify(cleanData, null, 2));
-
-            if (!process.env.NOTION_API_KEY) {
-                throw new Error('NOTION_API_KEY manquante dans les variables d\'environnement');
-            }
-            if (!process.env.NOTION_DATABASE_ID) {
-                throw new Error('NOTION_DATABASE_ID manquante dans les variables d\'environnement');
+            if (!process.env.NOTION_API_KEY || !process.env.NOTION_DATABASE_ID) {
+                throw new Error('Configuration CRM manquante');
             }
 
-            const notionPayload = {
+            await notion.pages.create({
                 parent: {
                     database_id: process.env.NOTION_DATABASE_ID!
                 },
@@ -236,53 +182,30 @@ export async function POST(request: NextRequest) {
                         }
                     }
                 }
-            };
-
-            console.log('Payload Notion:', JSON.stringify(notionPayload, null, 2));
-
-            const notionResult = await notion.pages.create(notionPayload);
-
-            console.log('✅ Notion succès! Page ID:', notionResult.id);
-            console.log('===== FIN NOTION =====');
-        } catch (notionError: unknown) {
-            const err = notionError as { message?: string; code?: string; status?: number; body?: unknown };
-            console.error('[DEBUG] ❌ ERREUR NOTION COMPLÈTE:', {
-                message: err.message,
-                code: err.code,
-                status: err.status,
-                body: JSON.stringify(err.body)
             });
-
-            // Si Notion échoue, on retourne quand même succès (l'email est envoyé)
+        } catch (notionError: unknown) {
+            console.error('Erreur CRM:', (notionError as Error).message);
+            // If Notion fails, still return success (email was sent)
             return NextResponse.json({
                 success: true,
                 message: 'Candidature envoyée (CRM temporairement indisponible)'
             });
         }
 
-        // ===== SUCCÈS COMPLET =====
+        // ===== SUCCESS =====
         return NextResponse.json({
             success: true,
             message: 'Candidature envoyée avec succès'
         });
 
     } catch (error: unknown) {
-        console.error('Erreur générale:', error);
-
-        // Ne JAMAIS exposer les détails de l'erreur au client
-        return NextResponse.json(
-            {
-                error: 'Une erreur est survenue. Veuillez réessayer ou nous contacter directement.',
-            },
-            { status: 500 }
-        );
+        console.error('Erreur contact:', (error as Error).message);
+        return errorResponse('Une erreur est survenue. Veuillez réessayer ou nous contacter directement.');
     }
 }
 
-// Bloquer les autres méthodes HTTP
-export async function GET() {
-    return NextResponse.json(
-        { error: 'Méthode non autorisée' },
-        { status: 405 }
-    );
-}
+// Block all other HTTP methods
+export async function GET() { return methodNotAllowed(); }
+export async function PUT() { return methodNotAllowed(); }
+export async function DELETE() { return methodNotAllowed(); }
+export async function PATCH() { return methodNotAllowed(); }

@@ -7,6 +7,23 @@ const intlMiddleware = createMiddleware({
     localePrefix: 'always'
 })
 
+// ── Security headers applied to every middleware response ──────────────────
+const SECURITY_HEADERS: Record<string, string> = {
+    'X-Frame-Options': 'DENY',
+    'X-Content-Type-Options': 'nosniff',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
+    'X-DNS-Prefetch-Control': 'on',
+};
+
+function applySecurityHeaders(response: NextResponse): NextResponse {
+    for (const [key, value] of Object.entries(SECURITY_HEADERS)) {
+        response.headers.set(key, value);
+    }
+    // Remove X-Powered-By if present
+    response.headers.delete('X-Powered-By');
+    return response;
+}
+
 export default function middleware(request: NextRequest) {
     const host = request.headers.get('host') || ''
 
@@ -19,7 +36,8 @@ export default function middleware(request: NextRequest) {
         const url = request.nextUrl.clone()
         url.host = 'www.orsayn.com'
         url.protocol = 'https:'
-        return NextResponse.redirect(url, { status: 308 })
+        const redirectResponse = NextResponse.redirect(url, { status: 308 });
+        return applySecurityHeaders(redirectResponse);
     }
 
     const response = intlMiddleware(request)
@@ -29,11 +47,12 @@ export default function middleware(request: NextRequest) {
     if (response.status === 307) {
         const location = response.headers.get('location')
         if (location) {
-            return NextResponse.redirect(location, { status: 308 })
+            const permanentRedirect = NextResponse.redirect(location, { status: 308 });
+            return applySecurityHeaders(permanentRedirect);
         }
     }
 
-    return response
+    return applySecurityHeaders(response as NextResponse);
 }
 
 export const config = {
