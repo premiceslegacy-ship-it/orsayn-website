@@ -273,8 +273,8 @@ const Contact: React.FC = () => {
 
             <div className="mt-12 xl:mt-0">
               <p className="text-[9px] uppercase tracking-widest text-ink/40 mb-4">{t('directMailLabel')}</p>
-              <a href="mailto:contact@orsayn.fr" className="group flex items-center gap-4 text-ink hover:text-brass transition-colors duration-500 justify-center xl:justify-start">
-                <span className="font-serif text-xl md:text-2xl">contact@orsayn.fr</span>
+              <a href="https://wa.me/33651664068" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4 text-ink hover:text-brass transition-colors duration-500 justify-center xl:justify-start">
+                <span className="font-serif text-xl md:text-2xl">WhatsApp Business</span>
                 <ArrowRight className="w-4 h-4 transform group-hover:translate-x-2 transition-transform duration-500" />
               </a>
             </div>
