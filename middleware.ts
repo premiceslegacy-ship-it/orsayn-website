@@ -28,14 +28,19 @@ export default function middleware(request: NextRequest) {
     const host = request.headers.get('host') || ''
 
     // Directive 2: Permanent 308 redirect non-www → www
+    // For the root path, also add the default locale to avoid a 2-hop chain:
+    //   orsayn.com/ → www.orsayn.com/ → www.orsayn.com/fr/  (was 2 hops)
+    //   orsayn.com/ → www.orsayn.com/fr/                    (now 1 hop)
     if (
         host === 'orsayn.com' ||
-        host === 'http://orsayn.com' ||
         host.startsWith('orsayn.com:')
     ) {
         const url = request.nextUrl.clone()
         url.host = 'www.orsayn.com'
         url.protocol = 'https:'
+        if (url.pathname === '/' || url.pathname === '') {
+            url.pathname = '/fr'
+        }
         const redirectResponse = NextResponse.redirect(url, { status: 308 });
         return applySecurityHeaders(redirectResponse);
     }
