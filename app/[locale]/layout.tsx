@@ -102,6 +102,7 @@ export default async function LocaleLayout({
                 <link rel="preload" href="/fonts/Boska-300.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
                 <link rel="preload" href="/fonts/Boska-500.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
                 <link rel="preload" href="/fonts/GeneralSans-400.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+                <meta name="facebook-domain-verification" content="529azunzbjla3q01xg0ds9nqrjzof4" />
             </head>
             <body className="min-h-screen bg-[#FFFAF1] text-[#1A1A1A] overflow-x-hidden antialiased selection:bg-[#1A1A1A] selection:text-[#FFFAF1]" suppressHydrationWarning>
 
