@@ -33,7 +33,11 @@ export default function middleware(request: NextRequest) {
     //   orsayn.com/ → www.orsayn.com/fr/                    (now 1 hop)
     if (
         host === 'orsayn.com' ||
-        host.startsWith('orsayn.com:')
+        host.startsWith('orsayn.com:') ||
+        host === 'orsayn.fr' ||
+        host.startsWith('orsayn.fr:') ||
+        host === 'www.orsayn.fr' ||
+        host.startsWith('www.orsayn.fr:')
     ) {
         const url = request.nextUrl.clone()
         url.host = 'www.orsayn.com'
