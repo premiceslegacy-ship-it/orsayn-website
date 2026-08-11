@@ -1,188 +1,26 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 120px;
-    /* Compense la navigation fixe + marge */
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
 
-  /* Désactiver smooth scroll pour utilisateurs préférant mouvement réduit */
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
 
-    * {
-      animation-duration: 0.01ms !important;
-      animation-iteration-count: 1 !important;
-      transition-duration: 0.01ms !important;
-      scroll-behavior: auto !important;
-    }
-  }
-
-  body {
-    @apply bg-paper text-ink;
-    /* Force le moteur de rendu de texte Haute Qualité */
-    text-rendering: optimizeLegibility;
-    font-feature-settings: "kern" 1, "liga" 1;
-  }
-
-  /* REPRISE EXACTE DU STYLE DE SELECTION DU MVP */
-  ::selection {
-    background: #1A1A1A;
-    color: #FFFAF1;
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
   }
 }
 
-/* REPRISE EXACTE DE LA SCROLLBAR DU MVP */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  background: #FFFAF1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #1A1A1A;
-  border-radius: 0px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #333;
-}
-
-/* UTILITAIRE DE TRANSITION FLUIDE - Optimisé pour fluidité premium */
-.velours-transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
-  transition-duration: 500ms;
-}
-
-/* ===== SHIMMER BUTTON ANIMATION PREMIUM ===== */
-@keyframes shimmer-sweep {
-  0% {
-    transform: translateX(-100%);
-    opacity: 0;
-  }
-
-  20% {
-    opacity: 0.8;
-  }
-
-  50% {
-    opacity: 1;
-  }
-
-  80% {
-    opacity: 0.8;
-  }
-
-  100% {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
-
-.shimmer-effect {
-  animation: shimmer-sweep 3.5s ease-in-out infinite;
-}
-
-/* Pause l'animation au hover pour effet subtil */
-.shimmer-button:hover .shimmer-effect {
-  animation-play-state: paused;
-}
-/* LOCAL FONTS */
-
-/* Boska */
-@font-face {
-  font-family: 'Boska';
-  src: url('/fonts/Boska-200.woff2') format('woff2');
-  font-weight: 200;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Boska';
-  src: url('/fonts/Boska-300.woff2') format('woff2');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Boska';
-  src: url('/fonts/Boska-400.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Boska';
-  src: url('/fonts/Boska-500.woff2') format('woff2');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Boska';
-  src: url('/fonts/Boska-700.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'Boska';
-  src: url('/fonts/Boska-900.woff2') format('woff2');
-  font-weight: 900;
-  font-display: swap;
-  font-style: normal;
-}
-
-/* General Sans */
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-200.woff2') format('woff2');
-  font-weight: 200;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-300.woff2') format('woff2');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-400.woff2') format('woff2');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-500.woff2') format('woff2');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-600.woff2') format('woff2');
-  font-weight: 600;
-  font-display: swap;
-  font-style: normal;
-}
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans-700.woff2') format('woff2');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
 }
